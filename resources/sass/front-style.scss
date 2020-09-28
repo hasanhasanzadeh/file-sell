@@ -1,0 +1,447 @@
+@import "fonts";
+body,html{
+    font-family: iran-sans,sans-serif ;
+    font-size:1rem;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+    direction: rtl;
+    overflow-x: hidden;
+}
+.header{
+    width:100% !important;
+    background: rgba(0, 0, 0, 0.05);
+}
+.header-top{
+    margin: 0;
+    padding: 0;
+    width:100% !important;
+    height: 2.5rem;
+}
+nav.nav{
+    font-size: 14px !important;
+}
+nav>a.nav-link:hover{
+    color: #ffffff !important;
+}
+nav>a.nav-link{
+    color: #e7e4e4 !important;
+}
+.ft-1rem{
+    font-size: 1rem;
+}
+.ft-2rem{
+    font-size: 2rem;
+}
+.ft-12{
+    font-size: 12px !important;
+}
+.ft-13{
+    font-size: 13px !important;
+}
+#search{
+    margin-top: 20px;
+}
+input:focus, input.form-control:focus{
+    outline:none !important;
+    box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+}
+.menu{
+    width: 100% !important;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.menu>nav>a.nav-link{
+    font-size: 16px !important;
+}
+.banner{
+    padding: 0;
+    margin: 0;
+    width:100% !important;
+    height:360px;
+    background-image: linear-gradient(to right top, #48548c, #53639d, #5f72ae, #6a82bf, #7692d0, #72a1df, #6eb0ec, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+}
+.text-banner{
+    margin-left: auto;
+    padding:20px;
+    font-size:2.2rem;
+}
+.description-banner{
+    width:600px;
+    height:400px;
+    padding:20px;
+    margin-left:auto;
+    text-align: justify;
+    font-size:1.1rem;
+}
+.img-banner{
+    width: 500px;
+    height:240px;
+    margin-right: auto;
+    padding: 20px;
+}
+.text-banner-min{
+    width:100%;
+    margin: 10px;
+    padding:10px;
+    font-size:1.5rem;
+}
+.description-banner-min{
+    width:100%;
+    height:200px;
+    padding:20px;
+    text-align: justify;
+    font-size:1rem;
+}
+.img-banner-min{
+    width:90%;
+    height:140px;
+    margin-right:5%;
+}
+.coupon-banner{
+    width: 100% !important;
+    height:40px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgb(58, 52, 160) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+    padding:7px;
+}
+.img-card-sf{
+    width:100%!important;
+    height: 170px!important;
+}
+.card:hover{
+    transform: scale(1.015);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.content-method{
+    margin:0;
+    padding: 0;
+    width: 100%;
+    height: 580px;
+    background: linear-gradient(90deg, rgb(191, 198, 184) 0%, rgb(177, 187, 167) 100%);
+}
+@media (max-width: 719px) {
+    .content-method{
+        margin:0;
+        padding: 0;
+        width: 100%;
+        height: 1200px;
+        background: linear-gradient(90deg, rgb(191, 198, 184) 0%, rgb(177, 187, 167) 100%);
+    }
+}
+.bg-silver{
+    color:white !important;
+    background: rgb(127, 134, 120);
+}
+.btn-left{
+    margin:10px 100px 0px;
+}
+p{
+    font-size: 14px !important;
+}
+.content-propaganda{
+    margin:0;
+    padding: 0;
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(90deg, rgb(191, 198, 184) 0%, rgb(177, 187, 167) 100%);
+}
+.img-propaganda{
+    width: 100%;
+    height:250px;
+    margin:5%;
+}
+@media (max-width: 719px) {
+    .text-width{
+        font-size:0.8rem !important;
+        line-height: 1.1rem !important;
+        font-weight: initial;
+        color: #e0d9d9 !important;
+    }
+    .text-top{
+        margin: 10px !important;
+        padding:20px !important;
+    }
+    .content-propaganda{
+        margin:0;
+        padding: 0;
+        width: 100%;
+        height: 1550px;
+        background: linear-gradient(90deg, rgb(191, 198, 184) 0%, rgb(177, 187, 167) 100%);
+    }
+    .left-btn{
+        margin-right: auto !important;
+    }
+    .register{
+        background: linear-gradient(90deg, rgb(96, 138, 153) 0%, rgb(121, 173, 169) 100%);
+        width: 100%;
+        height: 850px !important;
+    }
+}
+.padcast{
+    margin-top:-100px;
+}
+.left-btn{
+    margin-right: 500px;
+}
+.news-paper{
+    width: 100%;
+    height: 260px;
+    background: linear-gradient(90deg, rgb(134, 122, 122) 0%, rgb(99, 104, 94) 100%);
+}
+.form-email{
+    text-align: center;
+    margin: auto;
+    z-index: 1000;
+    width: 390px;
+}
+.btn-news{
+    width: 390px !important;
+}
+.email-bottom{
+    margin-bottom: -400px;
+}
+.login{
+    background: linear-gradient(90deg, rgb(96, 138, 153) 0%, rgb(121, 173, 169) 100%);
+    width: 100%;
+    height: 600px;
+}
+.profile{
+    background-color: #f4f3f3;
+    width: 100%;
+    height: 1100px;
+}
+.profile-show{
+    background-color: #f4f3f3;
+    width: 100%;
+    height: 450px;
+}
+.register{
+    background: linear-gradient(90deg, rgb(96, 138, 153) 0%, rgb(121, 173, 169) 100%);
+    width: 100%;
+    height: 950px;
+}
+.verify{
+    background: linear-gradient(90deg, rgb(96, 138, 153) 0%, rgb(121, 173, 169) 100%);
+    width: 100%;
+    height: 600px;
+}
+.container {
+    display: block;
+    position: relative;
+    padding-right: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 25px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 9px;
+    font-size: 14px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.bg-image {
+    width:100%;
+    height:400px;
+    background:linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.43)), url("../images/about.jpg")  no-repeat ;
+    background-size:cover;
+}
+.contact-us {
+    width:100%;
+    height:400px;
+    background:linear-gradient(rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), url("../images/desk-144.jpg")  no-repeat ;
+    background-size:cover;
+}
+
+.faq{
+    width:100%;
+    height:400px;
+    background:linear-gradient(rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), url("../images/fqd.jpg")  no-repeat ;
+    background-size:cover;
+}
+.ads{
+    width:100%;
+    height:400px;
+    background:linear-gradient(rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), url("../images/Programmatic-Campaign-Setup-In-Four-Steps.jpg")  no-repeat ;
+    background-size:cover;
+}
+.law{
+    width:100%;
+    height:400px;
+    background:linear-gradient(rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), url("../images/oie_91518195nZfA6V8.jpg")  no-repeat ;
+    background-size:cover;
+}
+.podcast-show{
+    width:100%;
+    height:200px;
+    background:linear-gradient(rgba(0, 0, 0, 0.47), rgba(0, 0, 0, 0.38)) ;
+}
+.bg-image h2 {
+    color:white;
+    text-shadow:2px 2px #333;
+}
+.about-me{
+    color: #342f2f !important;
+}
+.text-me{
+    font-size:0.9rem !important;
+    padding:10px;
+    line-height: 2.5rem !important;
+    font-weight: initial;
+    color: #342f2f !important;
+}
+.card-learn{
+    text-align: left !important;
+    float: left !important;
+}
+img.shadow{
+    transform: scale(1.015) !important;
+    box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2), 4px 6px 20px 3px rgba(0, 0, 0, 0.19) !important;
+}
+.text-footer{
+    font-size:0.9rem !important;
+    padding:10px;
+    line-height: 2.5rem !important;
+    font-weight: initial;
+    color: #e0d9d9 !important;
+}
+.z-100{
+    z-index: 1000 !important;
+}
+.text-width{
+    font-size:0.9rem !important;
+    line-height: 1.8rem !important;
+    font-weight: initial;
+    color: #e0d9d9 !important;
+}
+.text-justify-fa{
+    font-size: 1.2rem !important;
+    line-height: 2rem !important;
+    font-weight: initial;
+    color: #2f2a2a !important;
+}
+.card-none:hover{
+    cursor: text;
+    transform: scale(1.015);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-none{
+    transform: scale(1.015);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.ft-16{
+    font-size: 1.2rem !important;
+    line-height: 2rem !important;
+}
+.ft-18{
+    font-size: 1.4rem !important;
+    line-height: 2rem !important;
+}
+.ft-22{
+    font-size: 1.6rem !important;
+    line-height: 2rem !important;
+}
+.ft-14{
+    font-size: 1rem !important;
+    line-height: 2rem !important;
+}
+.card-primary{
+    width:100%;
+    background:linear-gradient(rgba(16, 63, 224, 0.99), rgba(9, 60, 234, 0.38)) ;
+}
+.card-download:hover{
+    background: #3a3d3d !important;
+}
+.back-primary{
+    background: #4170a5;
+
+}
+.back-danger{
+    background: #c7255d;
+
+}
+.back-secondary{
+    background:#6c757d;
+
+}
+.back-success{
+    background: #309044;
+}
+.btn-1{
+    size:200px !important;
+}
+a.dropdown-toggle:hover{
+    border:none !important;
+    text-decoration: none !important;
+}
+.dropdown-item:hover{
+    background:silver;
+}
+.menu-active{
+    background: #a0cfe3;
+    width: 100% !important;
+}
+.menu-active>a.nav-link{
+    color: #21219b !important;
+}
+.a-link{
+    color: #222121 !important;
+}
+.a-link:hover{
+    background: silver;
+    width: 100% !important;
+}
