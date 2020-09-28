@@ -1,18 +1,18 @@
 @extends('admin.layouts.master')
 
 @section('title')
-    مقاله {{$article->name}}
+    کتاب صوتی {{$podcast->title}}
 @endsection
 
 @section('header')
     <section class="content-header">
         <h1>
-            مقالات
-            <small> مقاله {{$article->title}}</small>
+            لیست کتاب های صوتی
+            <small>کتاب صوتی {{$podcast->title}}</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="{{route('articles.index')}}"><i class="fa fa-archive"></i>مقالات</a></li>
-            <li class="active"> مقاله {{$article->title}}</li>
+            <li><a href="{{route('podcasts.index')}}"><i class="fa fa-microphone-alt"></i>لیست کتاب صوتی ها</a></li>
+            <li class="active">کتاب صوتی {{$podcast->title}}</li>
         </ol>
     </section>
 @endsection
@@ -21,9 +21,9 @@
 
     <div class="box">
         <div class="box-header">
-            <h4 class="text-center"> مقاله {{$article->title}}</h4>
+            <h4 class="text-center"> کتاب صوتی {{$podcast->title}}</h4>
             <div class="text-left">
-                <a href="{{route('articles.index')}}" class="btn btn-app">
+                <a href="{{route('podcasts.index')}}" class="btn btn-app">
                     <i class="fa fa-list"></i>
                     لیست
                 </a>
@@ -31,65 +31,80 @@
         </div>
         <div class="box-body">
 
-                <div class="table-responsive">
-                    <table class="table table-hover table-striped">
-                        <thead class="table-dark">
-                        <tr>
-                            <td>عنوان</td>
-                            <td>مشخصات</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>عنوان مقاله</td>
-                                <td>{{$article->title}}</td>
-                            </tr>
-                            <tr>
-                                <td>نویسنده مقاله</td>
-                                <td>{{$article->user->name}}</td>
-                            </tr>
-                            <tr>
-                                <td>نام دسته بندی</td>
-                                <td>{{$article->category->name}}</td>
-                            </tr>
-                            <tr>
-                                <td>عکس مقاله</td>
-                                <td><img src="{{$article->photo->path}}" alt="" height="140" width="170"></td>
-                            </tr>
-                            <tr>
-                                <td>تعداد بازدید</td>
-                                <td>{{$article->viewCount}}</td>
-                            </tr>
-                            <tr>
-                                <td>تعداد نظرات</td>
-                                <td>{{$article->commentCount}}</td>
-                            </tr>
-                            <tr>
-                                <td>متن مقاله</td>
-                                <td>{!! $article->body !!}</td>
-                            </tr>
-                            <tr>
-                                <td>عنوان متا</td>
-                                <td>{{$article->meta_title}}</td>
-                            </tr>
-                            <tr>
-                                <td>کلمات کلیدی متا</td>
-                                <td>{{$article->meta_keywords}}</td>
-                            </tr>
-                            <tr>
-                                <td>توضیحات متا</td>
-                                <td>{{$article->meta_description}}</td>
-                            </tr>
-                            <tr>
-                                <td>تاریخ ایجاد مقاله</td>
-                                <td>{{\Hekmatinasser\Verta\Verta::instance($article->created_at)->formatDifference()}}</td>
-                            </tr>
-                        </tbody>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
+                    <tr>
+                        <td>عنوان</td>
+                        <td>مشخصات</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>عنوان کتاب صوتی</td>
+                        <td>{{$podcast->title}}</td>
+                    </tr>
+                    <tr>
+                        <td>توضیحات کامل</td>
+                        <td>{!! $podcast->body !!}</td>
+                    </tr>
+                    <tr>
+                        <td>قیمت</td>
+                        <td>{{$podcast->presentPrice()}} تومان </td>
+                    </tr>
+                    <tr>
+                        <td>نوع</td>
+                        <td>
+                            @if($podcast->type=='vip')
+                                <div class="label label-primary">اعضای ویژه</div>
+                            @elseif($podcast->type=='cash')
+                                <div class="label label-info">نقدی</div>
+                            @else
+                                <div class="label label-success">رایگان</div>
+                            @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>عکس</td>
+                        <td><img src="{{$podcast->photo->path}}" alt="" class="img-bordered" width="270" height="240"></td>
+                    </tr>
+                    <tr>
+                        <td>تگ های کتاب صوتی</td>
+                        <td>{{$podcast->tags}}</td>
+                    </tr>
+                    <tr>
+                        <td>تعداد بازدید</td>
+                        <td>{{$podcast->viewCount}}</td>
+                    </tr>
+                    <tr>
+                        <td>تعداد نظرات</td>
+                        <td>{{$podcast->commentCount}}</td>
+                    </tr>
+                    <tr>
+                        <td>تعداد علاقه مندی ها</td>
+                        <td>{{$podcast->likeCount}}</td>
+                    </tr>
+                    <tr>
+                        <td>عنوان متا</td>
+                        <td>{{$podcast->meta_title}}</td>
+                    </tr>
+                    <tr>
+                        <td>کلمات کلیدی متا</td>
+                        <td>{{$podcast->meta_keywords}}</td>
+                    </tr>
+                    <tr>
+                        <td>توضیحات متا</td>
+                        <td>{{$podcast->meta_description}}</td>
+                    </tr>
+                    <tr>
+                        <td>تاریخ ایجاد</td>
+                        <td>{{\Hekmatinasser\Verta\Verta::instance($podcast->created_at)->formatDifference()}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                    </table>
-                </div>
         </div>
     </div>
 
 @endsection
-

@@ -35,16 +35,16 @@
                 {{method_field('PATCH')}}
                 <div class="form-group">
                     <label for="name">نام دسته بندی </label>
-                    <input type="text" name="name" value="{{$category->name}}" placeholder="نام دسته بندی را وارد کنید..." class="form-control">
+                    <input type="text" name="name" id="name" value="{{$category->name}}" placeholder="نام دسته بندی را وارد کنید..." class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="parent_id">دسته والد</label>
                     <select name="parent_id" id="parent_id" class="form-control" >
                         <option value="">دسته والد</option>
-                        @foreach($categories as $category_list)
-                            <option value="{{$category_list->parent_id}}" @if($category_list->id==$category->parent_id) selected @endif>{{$category_list->name}}</option>
-                            @if(count($category_list->children) > 0)
-                                @include('partials.category_list',['categories'=>$category_list->children ,'level'=>1])
+                        @foreach($categories as $subcategory)
+                            <option value="{{$subcategory->id}}" @if($subcategory->id==$category->parent_id) selected @endif>{{$subcategory->name}}</option>
+                            @if(count($subcategory->children) > 0)
+                                @include('partials.category_list',['categories'=>$subcategory->children ,'level'=>1])
                             @endif
                         @endforeach
                     </select>

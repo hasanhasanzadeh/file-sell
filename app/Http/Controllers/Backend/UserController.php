@@ -20,7 +20,7 @@ class UserController extends Controller
         $user=User::with('photo')->findOrfail(auth()->user()->id);
         $users=User::with('photo','comments')->paginate(10);
         if (!Gate::allows('isAdmin')){
-            alert()->error('کاربر '.$user->name.' به این قسمت دسترسی ندارید.','کاربر')->persistent("بستن");
+            alert()->error('دسترسی به این قسمت مجاز نیست.','دسترسی')->persistent("بستن");
             abort(403,"دسترسی به این قسمت ندارید");
         }
         return response()->view('admin.users.index',compact(['users','user']));
@@ -31,7 +31,7 @@ class UserController extends Controller
     {
         $user=User::with('photo')->findOrfail(auth()->user()->id);
         if (!Gate::allows('isAdmin')){
-            alert()->error('کاربر '.$user->name.' به این قسمت دسترسی ندارید.','کاربر')->persistent("بستن");
+            alert()->error('دسترسی به این قسمت مجاز نیست.','دسترسی')->persistent("بستن");
             abort(403,"دسترسی به این قسمت ندارید");
         }
         return response()->view('admin.users.create',compact('user'));
@@ -58,7 +58,7 @@ class UserController extends Controller
         $user=User::with('photo')->findOrfail(auth()->user()->id);
         $user_au=User::with('photo','comments')->findOrFail($id);
         if (!Gate::allows('isAdmin')){
-            alert()->error('کاربر '.$user->name.' به این قسمت دسترسی ندارید.','کاربر')->persistent("بستن");
+            alert()->error('دسترسی به این قسمت مجاز نیست.','دسترسی')->persistent("بستن");
             abort(403,"دسترسی به این قسمت ندارید");
         }
         return response()->view('admin.users.show',compact(['user_au','user']));
@@ -70,7 +70,7 @@ class UserController extends Controller
         $user=User::with('photo')->findOrfail(auth()->user()->id);
         $user_au=User::with('photo','comments')->findOrFail($id);
         if (!Gate::allows('isAdmin')){
-            alert()->error('کاربر '.$user->name.' به این قسمت دسترسی ندارید.','کاربر')->persistent("بستن");
+            alert()->error('دسترسی به این قسمت مجاز نیست.','دسترسی')->persistent("بستن");
             abort(403,"دسترسی به این قسمت ندارید");
         }
         return response()->view('admin.users.edit',compact(['user','user_au']));

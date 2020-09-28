@@ -1,18 +1,18 @@
 @extends('admin.layouts.master')
 
 @section('title')
-    قسمت های دوره آموزشی
+    کتاب های صوتی
 @endsection
 
 @section('header')
     <section class="content-header">
         <h1>
-            لیست قسمت های دوره آموزشی
-            <small>قسمت دوره</small>
+            لیست کتاب های صوتی
+            <small>کتاب صوتی</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="{{route('episodes.index')}}"><i class="fa fa-file-video"></i>لیست قسمت دوره آموزشی</a></li>
-            <li class="active">قسمت های دوره </li>
+            <li><a href="{{route('parts.index')}}"><i class="fa fa-file-video"></i>لیست کتاب صوتی آموزشی</a></li>
+            <li class="active">کتاب های صوتی </li>
         </ol>
     </section>
 @endsection
@@ -21,9 +21,9 @@
 
     <div class="box">
         <div class="box-header">
-            <h4 class="text-center"> قسمت های دوره</h4>
+            <h4 class="text-center"> کتاب های صوتی</h4>
             <div class="text-left">
-                <a href="{{route('episodes.index')}}" class="btn btn-app">
+                <a href="{{route('parts.index')}}" class="btn btn-app">
                     <i class="fa fa-list"></i>
                     لیست
                 </a>
@@ -31,15 +31,15 @@
         </div>
         <div class="box-body">
                 <div class="header text-center">
-                    <h4 class="py-2 ">{{$course->title}}</h4>
-                    <img src="{{$course->photo->path}}" alt="" class="img-bordered my-2" width="160" height="140">
+                    <h4 class="py-2 ">{{$podcast->title}}</h4>
+                    <img src="{{$podcast->photo->path}}" alt="" class="img-bordered my-2" width="160" height="140">
                 </div>
                 <div class="table-responsive">
                     <table class="table table-striped table-hover table-bordered">
                         <thead>
                         <tr>
-                            <td>قسمت دوره</td>
-                            <td>عنوان قسمت دوره</td>
+                            <td>کتاب صوتی</td>
+                            <td>عنوان کتاب صوتی</td>
                             <td>تعداد بازدید</td>
                             <td>تعداد نظرات</td>
                             <td>نوع دوره</td>
@@ -48,29 +48,29 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($course->episodes as $episode)
+                            @foreach($podcast->parts as $part)
                                 <tr>
-                                    <td>{{$episode->number}}</td>
-                                    <td><a href="{{route('episodes.show',$episode->id)}}" class="list-link">{{$episode->title}}</a></td>
-                                    <td>{{$episode->viewCount}}</td>
-                                    <td>{{$episode->commentCount}}</td>
+                                    <td>{{$part->number}}</td>
+                                    <td><a href="{{route('parts.show',$part->id)}}" class="list-link">{{$part->title}}</a></td>
+                                    <td>{{$part->viewCount}}</td>
+                                    <td>{{$part->commentCount}}</td>
                                     <td>
-                                        @if($episode->type=='vip')
+                                        @if($part->type=='vip')
                                             <div class="label label-primary">اعضای ویژه</div>
-                                        @elseif($episode->type=='cash')
+                                        @elseif($part->type=='cash')
                                             <div class="label label-info">نقدی</div>
-                                        @elseif($episode->type=='free')
+                                        @elseif($part->type=='free')
                                             <div class="label label-success">رایگان</div>
                                         @endif
                                     </td>
-                                    <td>{{\Hekmatinasser\Verta\Verta::instance($episode->created_at)->formatDifference()}}</td>
+                                    <td>{{\Hekmatinasser\Verta\Verta::instance($part->created_at)->formatDifference()}}</td>
                                     <td>
-                                        <a href="{{route('episodes.edit',$episode->id)}}" class="btn btn-warning btn-block">
+                                        <a href="{{route('parts.edit',$part->id)}}" class="btn btn-warning btn-block">
                                             ویرایش
                                             <i class="fa fa-edit"></i>
                                         </a>
                                         <br>
-                                        <form action="{{route('episodes.destroy',$episode->id)}}" method="POST">
+                                        <form action="{{route('parts.destroy',$part->id)}}" method="POST">
                                             @csrf
                                             {{method_field('DELETE')}}
                                             <div class="form-group">
@@ -96,7 +96,7 @@
 @section('script')
     <script type="text/javascript">
         $('.show_confirm').click(function(e) {
-            if(!confirm('آیا می خواهید قسمت دوره آموزشی مورد نظر را حذف کنید?')) {
+            if(!confirm('آیا می خواهید کتاب صوتی مورد نظر را حذف کنید?')) {
                 e.preventDefault();
             }
         });

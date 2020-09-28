@@ -26,7 +26,7 @@ Route::namespace('Backend')->prefix('admin')->middleware(['auth','isAdmin'])->gr
     Route::resource('/categories','CategoryController');
     Route::resource('/articles','ArticleController');
     Route::resource('/courses','CourseController');
-    Route::resource('/gazettes','GazettesController');
+    Route::resource('/gazettes','GazetteController');
     Route::resource('/podcasts','PodcastController');
     Route::resource('/parts','PartController');
     Route::resource('/episodes','EpisodeController');

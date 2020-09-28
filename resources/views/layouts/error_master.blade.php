@@ -14,13 +14,14 @@
 
     <link href="{{asset('css/app.css') }}" rel="stylesheet">
     <link href="{{asset('/frontend/front-style.css')}}" rel="stylesheet">
-
+    <script src="{{asset('js/sweet-alert.min.js')}}"></script>
 </head>
 <body>
 
 <div class="container-fluid" id="app">
     <div class="row">
         <div class="col-12 py-4">
+            @include('sweet::alert')
             @yield('content')
         </div>
     </div>

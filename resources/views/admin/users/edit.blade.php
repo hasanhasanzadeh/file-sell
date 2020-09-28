@@ -33,7 +33,7 @@
             <form action="{{route('users.update',$user_au->id)}}" method="POST">
                @csrf
                 {{method_field('PATCH')}}
-                <input type="hidden" value="{{$user_au->id}}" id="id">
+                <input type="hidden" value="{{$user_au->id}}" name="id">
                 <div class="form-group">
                     <label for="name">نام کاربری</label>
                     <input type="text" class="form-control" name="name" placeholder="نام و نام خانوادگی خود را وارد کنید..." value="{{$user_au->name}}" id="name">

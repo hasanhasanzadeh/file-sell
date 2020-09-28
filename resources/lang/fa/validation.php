@@ -154,6 +154,7 @@ return array(
         'not_robot'=>'من ربات نیستم',
         'code'=>'کد تایید موبایل',
         'file_size'=>'اندازه فایل',
+        'podcast_id'=>'کتاب صوتی',
         'file_time'=>'زمان فایل',
         'file_url'=>'آدرس فایل',
     ),

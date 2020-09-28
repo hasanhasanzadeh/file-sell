@@ -174,8 +174,8 @@ desired effect
                 <li><a href="{{url('/admin/courses')}}"><i class="fa fa-video"></i> <span>دوره های آموزشی</span></a></li>
                 <li><a href="{{url('/admin/episodes')}}"><i class="fa fa-file-video-o"></i> <span>آپلود قسمت دوره ها</span></a></li>
                 <li><a href="{{url('/admin/articles')}}"><i class="fa fa-archive"></i> <span>مقالات</span></a></li>
-                <li><a href="{{url('/admin/podcasts')}}"><i class="fa fa-microphone-alt"></i> <span>پادکست</span></a></li>
-                <li><a href="{{url('/admin/parts')}}"><i class="fa fa-microphone"></i> <span>آپلود پادکست </span></a></li>
+                <li><a href="{{url('/admin/podcasts')}}"><i class="fa fa-microphone-alt"></i> <span>کتاب صوتی</span></a></li>
+                <li><a href="{{url('/admin/parts')}}"><i class="fa fa-microphone"></i> <span>آپلود کتاب صوتی </span></a></li>
                 <li><a href="{{url('/admin/gazettes')}}"><i class="fa fa-file-alt"></i> <span>مجله</span></a></li>
                 @can('isAdmin')
                 <li><a href="{{url('/admin/users')}}"><i class="fa fa-users"></i> <span>کاربران</span></a></li>

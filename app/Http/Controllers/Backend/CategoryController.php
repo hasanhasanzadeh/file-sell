@@ -76,7 +76,7 @@ class CategoryController extends Controller
         $category->meta_keywords=$request->meta_keywords;
         $category->meta_description=$request->meta_description;
         $category->save();
-        alert()->success('دسته بندی '.$category->name.' به موفقیت اضافه شد.','دسته بندی')->persistent("بستن");
+        alert()->success('دسته بندی '.$category->name.' به موفقیت بروزرسانی شد.','دسته بندی')->persistent("بستن");
         return redirect()->route('categories.index');
 
     }

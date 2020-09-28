@@ -13,6 +13,7 @@ class Part extends Model
         'slug',
         'body',
         'description',
+        'podcast_id',
         'tags',
         'number',
         'file_time',

@@ -37,7 +37,7 @@
             <form action="{{route('update.profile')}}" method="POST">
                 @csrf
                 {{method_field('PATCH')}}
-                <input type="hidden" value="{{$profile->id}}" id="id">
+                <input type="hidden" value="{{$profile->id}}" name="id">
                 <div class="form-group">
                     <label for="name">نام کاربری</label>
                     <input type="text" class="form-control" name="name" placeholder="نام و نام خانوادگی خود را وارد کنید..." value="{{$profile->name}}" id="name">
