@@ -1,18 +1,18 @@
 @extends('admin.layouts.master')
 
 @section('title')
-    مقالات
+    نظرات تأیید شده
 @endsection
 
 @section('header')
     <section class="content-header">
         <h1>
             پیشخوان
-            <small>مقالات</small>
+            <small>نظرات تأیید شده</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{route('panel')}}"><i class="fa fa-tachometer-alt"></i>پیشخوان</a></li>
-            <li class="active">مقالات</li>
+            <li class="active">نظرات تأیید شده</li>
         </ol>
     </section>
 @endsection
@@ -21,16 +21,16 @@
 
     <div class="box">
         <div class="box-header">
-            <h4 class="text-center">مقالات</h4>
+            <h4 class="text-center">نظرات تایید شده</h4>
             <div class="text-left">
-                <a href="{{route('articles.create')}}" class="btn btn-app">
-                    <i class="fa fa-plus"></i>
-                    جدید
+                <a href="{{route('comments.falseStatus')}}" class="btn btn-app">
+                    <i class="fa fa-comments"></i>
+                    نظرات تأیید نشده
                 </a>
             </div>
         </div>
         <div class="box-body">
-            @if($articles->isEmpty())
+            @if($comments->isEmpty())
                 <div class="text-center my-2">
                     <div class="h1 text-muted">
                         <i class="far fa-frown-open h1"></i>
@@ -42,32 +42,38 @@
                     <table class="table table-hover table-striped table-bordered">
                         <thead class="table-dark">
                         <tr>
-                            <td>عنوان مقاله</td>
-                            <td>تعداد نظرات</td>
-                            <td>تعداد بازدید</td>
-                            <td>عکس</td>
-                            <td>نویسنده</td>
+                            <td>عکس کاربر</td>
+                            <td>نام کاربر</td>
+                            <td>متن نظر</td>
+                            <td>وضعیت</td>
                             <td>تاریخ ایجاد</td>
-                            <td>عملیات </td>
+                            <td>عملیات</td>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($articles as $article)
+                        @foreach($comments as $comment)
 
                             <tr>
-                                <td><a href="{{route('articles.show',$article->id)}}"> {{$article->title}} </a></td>
-                                <td>{{$article->commentCount}}</td>
-                                <td>{{$article->viewCount}}</td>
-                                <td><img src="{{$article->photo->path}}" class="img-bordered" alt="{{$article->title}}" height="130" width="150"></td>
-                                <td>{{$article->user->name}}</td>
-                                <td>{{\Hekmatinasser\Verta\Verta::instance($article->created_at)->formatDifference()}}</td>
                                 <td>
-                                    <a href="{{route('articles.edit',$article->id)}}" class="btn btn-warning btn-block">
-                                        ویرایش
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                    <br>
-                                    <form action="{{route('articles.destroy',$article->id)}}" method="POST">
+                                    @if($comment->user->photo_id)
+                                        <img src="{{$comment->user->photo->path}}" class="rounded-circle img-circle" alt="" height="70" width="70">
+                                    @else
+                                        <img src="{{asset('images/profile-icon.png')}}" class="rounded-circle img-circle" alt="" height="70" width="70">
+                                    @endif
+                                </td>
+                                <td>{{$comment->user->name}}</td>
+                                <td>{{$comment->body}}</td>
+                                <td>
+                                    @if($comment->status==1)
+                                        <div class="label label-success">تایید شده</div>
+                                    @else
+                                        <div class="label label-danger">تایید نشده</div>
+                                    @endif
+                                </td>
+                                <td>{{\Hekmatinasser\Verta\Verta::instance($comment->created_at)->formatDifference()}}</td>
+                                <td>
+
+                                    <form action="{{route('comments.destroy',$comment->id)}}" method="POST">
                                         @csrf
                                         {{method_field('DELETE')}}
                                         <div class="form-group">
@@ -86,7 +92,7 @@
 
                         <tfoot>
                         <tr>
-                            <td colspan="7" class="text-center">{{$articles->links()}}</td>
+                            <td colspan="7" class="text-center">{{$comments->links()}}</td>
                         </tr>
                         </tfoot>
                     </table>

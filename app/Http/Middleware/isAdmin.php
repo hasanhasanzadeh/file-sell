@@ -18,7 +18,7 @@ class isAdmin
     {
         if (Auth::check()){
             $user= Auth::user();
-            if ($user->isManager() && $user->status==1){
+            if ($user->isManager() && $user->status===1 && $user->admin_active===1){
                 return $next($request);
             }
             else{

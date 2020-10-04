@@ -33,7 +33,7 @@ class ArticleController extends Controller
         $article=new Article();
         $article->title=$request->title;
         $article->slug=$this->makeSlug($request->title);
-        $article->description=$this->makeDescription($request->description);
+        $article->description=$this->makeDescription($request->body);
         $article->body=$request->body;
         $article->photo_id=$request->photo_id;
         $article->tags=$request->tags;
@@ -68,7 +68,7 @@ class ArticleController extends Controller
         $article=Article::findOrFail($id);
         $article->title=$request->title;
         $article->slug=$this->makeSlug($request->title);
-        $article->description=$this->makeDescription($request->description);
+        $article->description=$this->makeDescription($request->body);
         $article->body=$request->body;
         $article->photo_id=$request->photo_id;
         $article->tags=$request->tags;

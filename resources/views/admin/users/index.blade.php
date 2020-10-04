@@ -48,6 +48,7 @@
                             <td>تعداد نظرات</td>
                             <td>وضعیت</td>
                             <td>سطح دسترسی</td>
+                            <td>نقش مدیریتی</td>
                             <td>تاریخ ایجاد</td>
                             <td>عملیات</td>
                         </tr>
@@ -74,7 +75,6 @@
                                 <td>
                                     @if($user_au->status==1)
                                         <div class="label label-primary">فعال</div>
-
                                     @else
                                         <div class="label label-danger">غیر فعال</div>
                                     @endif
@@ -90,6 +90,13 @@
                                     @elseif($user_au->level=='author')
                                         <div class="label label-primary">نویسنده</div>
                                      @endif
+                                </td>
+                                <td>
+                                    @if($user_au->admin_active==1)
+                                        <div class="label label-primary">فعال</div>
+                                    @else
+                                        <div class="label label-danger">غیر فعال</div>
+                                    @endif
                                 </td>
                                 <td>{{\Hekmatinasser\Verta\Verta::instance($user_au->created_at)->formatDifference()}}</td>
                                 <td>

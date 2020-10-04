@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AddUserRequest;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\ProfileUpdateRequest;
 use App\Http\Requests\UserRequest;
@@ -38,13 +39,14 @@ class UserController extends Controller
     }
 
 
-    public function store(UserRequest $request)
+    public function store(AddUserRequest $request)
     {
         $user=new User();
         $user->name=$request->name;
         $user->mobile=$request->mobile;
         $user->password=Hash::make($request->password);
         $user->status=$request->status;
+        $user->admin_active=$request->admin_active;
         $user->level=$request->level;
         $user->save();
         alert()->success('کاربر '.$user->name.' با موفقیت اضافه شد.','کاربر')->persistent("بستن");
@@ -86,6 +88,7 @@ class UserController extends Controller
         {
             $user->password=Hash::make($request->password);
         }
+        $user->admin_active=$request->admin_active;
         $user->status=$request->status;
         $user->level=$request->level;
         $user->save();

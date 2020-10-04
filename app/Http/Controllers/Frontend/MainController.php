@@ -13,20 +13,23 @@ class MainController extends Controller
     public function index()
     {
 //        $user=User::create([
-//           'name'=>'hassan hassanzadeh',
-//           'mobile'=>'09384446491',
+//           'name'=>'حسن زاده',
+//           'mobile'=>'09142641975',
 //           'status'=>1,
+//           'level'=>'editor',
+//            'admin_active'=>1,
 //           'mobile_verified_at'=>Carbon::now(),
-//           'password'=>Hash::make('12345678'),
+//           'password'=>Hash::make('09142641975'),
 //        ]);
+
         if (auth()->check()){
             $user=User::with('photo')->findOrFail(auth()->user()->id);
-            alert()->success('کاربر '.$user->name.' به سایت ما خوش آمدید.','ورود')->persistent("بستن");
+            alert()->success('کاربر '.$user->name.' به سایت ما خوش آمدید.','ورود');
             return view('welcome',compact(['user']));
         }
         else
         {
-            alert()->success('کاربر میهمان به سایت ما خوش آمدید.','ورود')->persistent("بستن");
+            alert()->success('کاربر میهمان به سایت ما خوش آمدید.','ورود');
             return view('welcome');
         }
 

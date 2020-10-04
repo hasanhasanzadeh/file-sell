@@ -51,9 +51,9 @@
                     <select name="category_id" id="category_id" class="form-control" >
                         <option value="">دسته بندی کتاب صوتی را انتخاب کنید...</option>
                         @foreach($categories as $category)
-                            <option value="{{$category->id}}" @if($podcast->category_id==$category->id) selected @endif>{{$category->name}}</option>
+                            <option value="{{$category->id}}" @if($category->id==$podcast->category_id) selected @endif>{{$category->name}}</option>
                             @if(count($category->children) > 0)
-                                @include('partials.category_list',['categories'=>$category->children ,'level'=>1])
+                                @include('partials.category_select',['categories'=>$category->children ,'category_id'=>$podcast->category_id,'level'=>1])
                             @endif
                         @endforeach
                     </select>

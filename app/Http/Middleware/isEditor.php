@@ -18,7 +18,7 @@ class isEditor
     {
         if (Auth::check()){
             $user= Auth::user();
-            if ($user->isEditor($role) && $user->status==1){
+            if ($user->isEditor($role) && $user->status===1 && $user->admin_active===1){
                 return $next($request);
             }
             else{

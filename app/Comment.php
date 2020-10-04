@@ -9,19 +9,25 @@ class Comment extends Model
     protected $table='comments';
     protected $fillable=[
         'user_id',
-        'description',
+        'body',
         'status',
-        'created_at',
-        'updated_at',
+        'commentable_id',
+        'commentable_type',
+        'created_at'
     ];
 
-    public function courses()
+    public function commentable()
     {
-        return $this->belongsToMany(Course::class);
+        return $this->morphTo();
     }
 
-    public function articles()
+    public function user()
     {
-        return $this->belongsToMany(Article::class);
+        return $this->belongsTo(User::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class,'parent_id');
     }
 }

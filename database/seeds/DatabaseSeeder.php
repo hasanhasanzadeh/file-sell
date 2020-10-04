@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
 
         $faker = Faker\Factory::create();
-        $limit = 22;
+        $limit = 10;
 
         for ($i = 0; $i < $limit; $i++) {
 
@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
                 'email' => $faker->unique()->email,
                 'mobile' => $faker->unique()->phoneNumber,
                 'level' => "user",
+                'status'=>1,
                 'password'=>Hash::make(Str::random(8)),
             ]);
             DB::table('categories')->insert([

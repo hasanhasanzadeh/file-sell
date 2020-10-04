@@ -13,7 +13,7 @@ class MainController extends Controller
     public function index()
     {
         $user=User::with('photo')->findOrfail(auth()->user()->id);
-        alert()->success('کاربر '.$user->name.' به بخش مدیریت خوش آمدید.','ورود')->persistent("بستن");
+        alert()->success('کاربر '.$user->name.' به بخش مدیریت خوش آمدید.','ورود');
         return view('admin.main.index',compact('user'));
     }
 }

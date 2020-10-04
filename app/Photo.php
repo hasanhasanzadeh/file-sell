@@ -15,14 +15,16 @@ class Photo extends Model
 
     protected $table='photos';
     protected $fillable=[
-        'user_id',
         'path',
         'original_name',
         'created_at',
         'updated_at'
     ];
 
-
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
     public function coupon()
     {
         return $this->belongsTo(Coupon::class);

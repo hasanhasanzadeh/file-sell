@@ -18,7 +18,7 @@ class isAuthor
     {
         if (Auth::check()){
             $user= Auth::user();
-            if ($user->isAuthor($role) && $user->status==1){
+            if ($user->isAuthor($role) && $user->status===1 && $user->admin_active===1){
                 return $next($request);
             }
             else{

@@ -60,6 +60,13 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="admin_active">نقش مدیریتی</label>
+                    <select name="admin_active" id="admin_active" class="form-control">
+                        <option value="0" @if($user_au->admin_active==0) selected @endif>غیر فعال</option>
+                        <option value="1" @if($user_au->admin_active==1) selected @endif>فعال</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="status">وضعیت</label>
                     <select name="status" id="status" class="form-control">
                         <option value="1" @if($user_au->status==1) selected @endif>فعال</option>

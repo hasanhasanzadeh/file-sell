@@ -19,6 +19,7 @@ Route::get('user/active/mobile','Frontend\UserController@verify')->name('verify.
 
 Route::middleware('auth')->group(function(){
     Route::post('photos/upload','Backend\PhotoController@upload')->name('photos.upload');
+    Route::post('/comments/store','Frontend\CommentController@store')->name('comments.store');
 });
 Route::namespace('Backend')->prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::get('/','MainController@index')->name('panel');
@@ -31,6 +32,10 @@ Route::namespace('Backend')->prefix('admin')->middleware(['auth','isAdmin'])->gr
     Route::resource('/parts','PartController');
     Route::resource('/episodes','EpisodeController');
     Route::get('/profile','UserController@profile')->name('profile.index');
+    Route::get('/comments/true-status','CommentController@trueStatus')->name('comments.trueStatus');
+    Route::get('/comments/false-status','CommentController@falseStatus')->name('comments.falseStatus');
+    Route::patch('/comments/update/{id}','CommentController@update')->name('comments.update');
+    Route::post('/comments/destroy/{id}','CommentController@destroy')->name('comments.destroy');
     Route::get('/profile/edit','UserController@profileEdit')->name('profile.edit');
     Route::patch('/profile/update','UserController@profileUpdate')->name('update.profile');
     Route::resource('/users','UserController');
@@ -57,6 +62,8 @@ Route::group(['namespace' => 'Auth'] , function (){
 });
 
 Route::get('/','Frontend\MainController@index')->name('index');
+Route::get('/articles/{slug}','Frontend\ArticleController@show')->name('articles.slug');
+Route::get('/articles','Frontend\ArticleController@index')->name('articles');
 Route::get('/home','Frontend\MainController@index')->name('index');
 Route::get('/index','Frontend\MainController@index')->name('welcome');
 Route::get('/welcome','Frontend\MainController@index')->name('welcome');
