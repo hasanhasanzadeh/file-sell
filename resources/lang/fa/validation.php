@@ -157,5 +157,12 @@ return array(
         'podcast_id'=>'کتاب صوتی',
         'file_time'=>'زمان فایل',
         'file_url'=>'آدرس فایل',
+        'about'=>'درباره',
+        'copy_right'=>'کپی رایت',
+        'banner'=>'بنر سایت',
+        'icon_image'=>'ایکون سایت',
+        'description_banner'=>'توضیحات بنر',
+        'payment_id'=>'کد پیگیری رسید بانکی',
+        'url_address'=>'آدرس آگهی',
     ),
 );

@@ -20,6 +20,19 @@ Route::get('user/active/mobile','Frontend\UserController@verify')->name('verify.
 Route::middleware('auth')->group(function(){
     Route::post('photos/upload','Backend\PhotoController@upload')->name('photos.upload');
     Route::post('/comments/store','Frontend\CommentController@store')->name('comments.store');
+
+    Route::get('/advertisements','Frontend\AdvertisementController@index')->name('advertisement.index');
+    Route::get('/advertisements/create','Frontend\AdvertisementController@create')->name('advertisement.create');
+    Route::get('/advertisements/edit/{id}','Frontend\AdvertisementController@edit')->name('advertisement.edit');
+    Route::post('/advertisements/store','Frontend\AdvertisementController@store')->name('advertisement.store');
+    Route::delete('/advertisements/destroy/{id}','Frontend\AdvertisementController@destroy')->name('advertisement.destroy');
+    Route::patch('/advertisements/update/{id}','Frontend\AdvertisementController@update')->name('advertisement.update');
+
+    Route::get('/achievements','Frontend\AchievementController@index')->name('achievements.index');
+    Route::get('/achievements/create','Frontend\AchievementController@create')->name('achievements.create');
+    Route::post('/achievements/store','Frontend\AchievementController@store')->name('achievements.store');
+    Route::delete('/achievements/destroy/{id}','Frontend\AchievementController@destroy')->name('achievements.destroy');
+    Route::post('/email/save','Frontend\UserController@emailSave')->name('email.save');
 });
 Route::namespace('Backend')->prefix('admin')->middleware(['auth','isAdmin'])->group(function(){
     Route::get('/','MainController@index')->name('panel');
@@ -30,12 +43,28 @@ Route::namespace('Backend')->prefix('admin')->middleware(['auth','isAdmin'])->gr
     Route::resource('/gazettes','GazetteController');
     Route::resource('/podcasts','PodcastController');
     Route::resource('/parts','PartController');
+
+    Route::get('/advertisements/true-status','AdvertisementController@trueStatus')->name('advertisements.trueStatus');
+    Route::get('/advertisements/false-status','AdvertisementController@falseStatus')->name('advertisements.falseStatus');
+    Route::get('/advertisements','AdvertisementController@falseStatus')->name('advertisements.falseStatus');
+    Route::patch('/advertisements/update/{id}','AdvertisementController@update')->name('advertisements.update');
+    Route::delete('/advertisements/destroy/{id}','AdvertisementController@destroy')->name('advertisements.destroy');
+
+    Route::get('/achievements/true-status','AchievementController@trueStatus')->name('achievements.trueStatus');
+    Route::get('/achievements/false-status','AchievementController@falseStatus')->name('achievements.falseStatus');
+    Route::get('/achievements','AchievementController@falseStatus')->name('achievements.falseStatus');
+    Route::patch('/achievements/update/{id}','AchievementController@update')->name('achievements.update');
+    Route::delete('/achievements/destroy/{id}','AchievementController@destroy')->name('achievements.destroy');
     Route::resource('/episodes','EpisodeController');
     Route::get('/profile','UserController@profile')->name('profile.index');
+    Route::get('/settings','SettingController@show')->name('settings.show');
+    Route::patch('/settings/update/{id}','SettingController@update')->name('settings.update');
+    Route::get('/settings/edit/{id}','SettingController@edit')->name('settings.edit');
+    Route::post('/photo/store','PhotoController@store')->name('photo.store');
     Route::get('/comments/true-status','CommentController@trueStatus')->name('comments.trueStatus');
     Route::get('/comments/false-status','CommentController@falseStatus')->name('comments.falseStatus');
     Route::patch('/comments/update/{id}','CommentController@update')->name('comments.update');
-    Route::post('/comments/destroy/{id}','CommentController@destroy')->name('comments.destroy');
+    Route::delete('/comments/destroy/{id}','CommentController@destroy')->name('comments.destroy');
     Route::get('/profile/edit','UserController@profileEdit')->name('profile.edit');
     Route::patch('/profile/update','UserController@profileUpdate')->name('update.profile');
     Route::resource('/users','UserController');
@@ -63,9 +92,18 @@ Route::group(['namespace' => 'Auth'] , function (){
 
 Route::get('/','Frontend\MainController@index')->name('index');
 Route::get('/articles/{slug}','Frontend\ArticleController@show')->name('articles.slug');
+Route::get('/courses/{slug}','Frontend\CourseController@show')->name('articles.slug');
 Route::get('/articles','Frontend\ArticleController@index')->name('articles');
+Route::get('/courses','Frontend\CourseController@index')->name('articles');
+Route::get('/gazettes','Frontend\GazetteController@index')->name('gazettes');
+Route::get('/gazettes/{slug}','Frontend\GazetteController@show')->name('gazettes.slug');
+Route::get('/podcasts','Frontend\PodcastController@index')->name('podcast');
+Route::get('/podcasts/{slug}','Frontend\PodcastController@show')->name('podcasts.slug');
 Route::get('/home','Frontend\MainController@index')->name('index');
 Route::get('/index','Frontend\MainController@index')->name('welcome');
 Route::get('/welcome','Frontend\MainController@index')->name('welcome');
+Route::get('/advertisements/{id}','Frontend\AdvertisementController@show')->name('advertisement.show');
+Route::get('/achievements/{id}','Frontend\AchievementController@show')->name('achievements.show');
+
 Route::any('(:any)/(:all?)','Frontend\MainController@index');
 

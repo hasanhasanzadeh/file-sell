@@ -39,4 +39,9 @@ class Photo extends Model
     {
         return $this->hasOne(Article::class);
     }
+
+    public function advertisement()
+    {
+        return $this->hasOne(Advertisement::class);
+    }
 }

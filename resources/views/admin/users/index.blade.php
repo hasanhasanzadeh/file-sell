@@ -69,7 +69,7 @@
                                     @if($user_au->comments==null)
                                         0
                                     @else
-                                        {{$user_au->comments}}
+                                        {{$user_au->comments->count()}}
                                     @endif
                                 </td>
                                 <td>

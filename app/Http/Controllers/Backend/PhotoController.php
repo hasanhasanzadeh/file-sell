@@ -27,4 +27,15 @@ class PhotoController extends Controller
         return response()->json(['photo_id'=>$photo->id]);
     }
 
+    public function store(Request $request)
+    {
+        $uploadedFile = $request->file('file');
+        $filename =time().$uploadedFile->getClientOriginalName();
+        $original_name=$uploadedFile->getClientOriginalName();
+        Storage::disk('public')->putFileAs(
+            'images/', $uploadedFile, $filename
+        );
+        return response()->json(['photo_name'=>$filename]);
+    }
+
 }

@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','level','mobile','email','code','status','admin_active', 'password','photo_id'
+        'name','level','email_status','mobile','email','code','status','admin_active', 'password','photo_id'
     ];
 
     /**
@@ -61,18 +61,10 @@ class User extends Authenticatable
         return $this->belongsTo(Photo::class);
     }
 
-//    public function roles()
-//    {
-//        return $this->belongsToMany(Role::class,'role_user','user_id','role_id');
-//    }
-
-//    public function hasRole($role)
-//    {
-//        if (is_string($role)){
-//            return $this->roles->contains('name',$role);
-//        }
-//    }
-
+    public function achievements()
+    {
+        return $this->hasMany(achievement::class);
+    }
     public function isManager()
     {
 
@@ -113,5 +105,15 @@ class User extends Authenticatable
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function achievement()
+    {
+        return $this->hasMany(Achievement::class);
+    }
+
+    public function advertisements()
+    {
+        return $this->hasMany(Advertisement::class);
     }
 }

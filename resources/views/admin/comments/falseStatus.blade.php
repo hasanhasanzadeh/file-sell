@@ -107,7 +107,7 @@
 @section('script')
     <script type="text/javascript">
         $('.show_confirm').click(function(e) {
-            if(!confirm('آیا می خواهید مقاله مورد نظر را حذف کنید?')) {
+            if(!confirm('آیا می خواهید نظر مورد نظر را حذف کنید?')) {
                 e.preventDefault();
             }
         });

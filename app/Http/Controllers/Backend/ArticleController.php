@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Article;
 use App\Category;
+use App\Comment;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ArticleRequest;
 use App\User;
@@ -13,19 +14,26 @@ use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
-
+    public $trueCount;
+    public $falseCount;
+    public function counts()
+    {
+         $this->trueCount=Comment::where('status',1)->count();
+         $this->falseCount=Comment::where('status',0)->count();
+    }
     public function index()
     {
+        $this->counts();
         $user=User::with('photo')->findOrfail(auth()->user()->id);
         $articles=Article::latest()->paginate(10);
-        return  response()->view('admin.articles.index',compact(['articles','user']));
+        return  response()->view('admin.articles.index',compact(['articles','user','tureCount','falseCount']));
     }
 
     public function create()
     {
         $user=User::with('photo')->findOrfail(auth()->user()->id);
         $categories=Category::with('children')->where('parent_id',null)->get();
-        return view('admin.articles.create',compact(['categories','user']));
+        return view('admin.articles.create',compact(['categories','user','tureCount','falseCount']));
     }
 
     public function store(ArticleRequest $request)
@@ -51,7 +59,7 @@ class ArticleController extends Controller
     {
         $user=User::with('photo')->findOrfail(auth()->user()->id);
         $article=Article::findOrFail($article->id);
-        return response()->view('admin.articles.show',compact(['article','user']));
+        return response()->view('admin.articles.show',compact(['article','user','tureCount','falseCount']));
     }
 
     public function edit($id)
@@ -59,7 +67,7 @@ class ArticleController extends Controller
         $user=User::with('photo')->findOrfail(auth()->user()->id);
         $article=Article::findOrFail($id);
         $categories=Category::with('children')->where('parent_id',null)->get();
-        return response()->view('admin.articles.edit',['article'=>$article,'categories'=>$categories,'user'=>$user]);
+        return response()->view('admin.articles.edit',['article'=>$article,'categories'=>$categories,'user'=>$user,'tureCount'=>$this->trueCount,'falseCount'=>$this->falseCount]);
     }
 
     public function update(ArticleRequest $request, $id)

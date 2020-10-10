@@ -22,9 +22,15 @@
                         </div>
                         <hr>
                         <div class="nav-item menu-active">
-                            <a href="{{url('/profile')}}" class="nav-link mr-2">
+                            <a href="{{url('/profile')}}" class="nav-link">
                                 <i class="fa fa-id-card ft-22 p-2"></i>
                                 <span>پروفایل من</span>
+                            </a>
+                        </div>
+                        <div class="nav-item">
+                            <a href="{{url('/achievements')}}" class="nav-link a-link">
+                                <i class="fa fa-user-graduate ft-22 p-2"></i>
+                                <span>موفقیت های شخصی</span>
                             </a>
                         </div>
                         <div class="nav-item">
@@ -43,6 +49,12 @@
                             <a href="#" class="nav-link a-link">
                                 <i class="fa fa-heart ft-22 p-2"></i>
                                 <span>لیست علاقه مندی ها</span>
+                            </a>
+                        </div>
+                        <div class="nav-item">
+                            <a href="{{url('/advertisements')}}" class="nav-link a-link">
+                                <i class="fas fa-bullhorn ft-22 p-2"></i>
+                                <span>آگهی ها</span>
                             </a>
                         </div>
                     </nav>
@@ -76,6 +88,16 @@
                                     <tr>
                                         <td>ایمیل</td>
                                         <td>{{$user->email}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>عضویت در خبرنامه</td>
+                                        <td>
+                                            @if($user->email_status)
+                                            <div class="badge badge-primary">فعال</div>
+                                            @else
+                                                <div class="badge badge-danger">غیر فعال</div>
+                                            @endif
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.apps')
 
 @section('title')
 ورود به وب سایت
@@ -8,9 +8,9 @@
 
     <div class="login">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row vh-100">
                 <div class="col-12 col-sm-8 col-md-6 m-auto">
-                    <div class="card my-4 bg-light">
+                    <div class="card my-5 bg-light">
                         <div class="card-header text-center">
                             <h5>ورود به وب سایت</h5>
                         </div>

@@ -24,12 +24,15 @@
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
+                    <a href="{{url('admin/courses')}}">
                         <span class="info-box-icon bg-aqua">
-                            <i class="fa fa-film"></i></span>
+                            <i class="fa fa-film"></i>
+                        </span>
+                    </a>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">محصولات</span>
-                        <span class="info-box-number">90<small>%</small></span>
+                        <span class="info-box-text">دوره های آموزشی</span>
+                        <span class="info-box-number">{{$arrays['courseCount']}}</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -39,11 +42,11 @@
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
                         <span class="info-box-icon bg-red">
-                            <i class="fa fa-shopping-cart"></i></span>
+                            <i class="fa fa-download"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">فروش</span>
-                        <span class="info-box-number">41,410</span>
+                        <span class="info-box-text">تعداد دانلود ها</span>
+                        <span class="info-box-number">{{$arrays['downloadCount']}}</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -56,12 +59,14 @@
 
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
-                        <span class="info-box-icon bg-green">
+                    <a href="{{url('admin/users')}}">
+                         <span class="info-box-icon bg-green">
                             <i class="fa fa-users"></i></span>
+                    </a>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">کاربران جدید</span>
-                        <span class="info-box-number">760</span>
+                        <span class="info-box-text">کاربران </span>
+                        <span class="info-box-number">{{$arrays['userCount']}}</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -70,12 +75,15 @@
             <!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
+                    <a href="{{url('admin/comments/true-status')}}">
                         <span class="info-box-icon bg-yellow">
-                            <i class="fa fa-cart-arrow-down"></i></span>
+                            <i class="fa fa-comments"></i>
+                        </span>
+                    </a>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">سفارشات</span>
-                        <span class="info-box-number">2,000</span>
+                        <span class="info-box-text">تعداد نظرات</span>
+                        <span class="info-box-number">{{$arrays['commentCount']}}</span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
@@ -275,217 +283,15 @@
                 </div>
                 <!-- /.box -->
                 <div class="row">
-                    <div class="col-md-6">
-                        <!-- DIRECT CHAT -->
-                        <div class="box box-warning direct-chat direct-chat-warning">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">پشتیبانی</h3>
 
-                                <div class="box-tools pull-right">
-                                    <span data-toggle="tooltip" title="۳ پیام جدید" class="badge bg-yellow">3</span>
-                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="کاربران"
-                                            data-widget="chat-pane-toggle">
-                                        <i class="fa fa-comments"></i></button>
-                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <!-- /.box-header -->
-                            <div class="box-body">
-                                <!-- Conversations are loaded here -->
-                                <div class="direct-chat-messages">
-                                    <!-- Message. Default to the left -->
-                                    <div class="direct-chat-msg">
-                                        <div class="direct-chat-info clearfix">
-                                            <span class="direct-chat-name pull-right">امین</span>
-                                            <span class="direct-chat-timestamp pull-left">۱۲ خرداد ساعت ۱۲:۳۴</span>
-                                        </div>
-                                        <!-- /.direct-chat-info -->
-                                        <img class="direct-chat-img" src="{{asset('dist/img/user1-128x128.jpg')}}" alt="message user image">
-                                        <!-- /.direct-chat-img -->
-                                        <div class="direct-chat-text">
-                                            سلام این قالب رایگان هست؟
-                                        </div>
-                                        <!-- /.direct-chat-text -->
-                                    </div>
-                                    <!-- /.direct-chat-msg -->
-
-                                    <!-- Message to the right -->
-                                    <div class="direct-chat-msg right">
-                                        <div class="direct-chat-info clearfix">
-                                            <span class="direct-chat-name pull-right">سارا</span>
-                                            <span class="direct-chat-timestamp pull-left"> خرداد ساعت ۱۲:۴۵</span>
-                                        </div>
-                                        <!-- /.direct-chat-info -->
-                                        <img class="direct-chat-img" src="{{asset('dist/img/user3-128x128.jpg')}}" alt="message user image">
-                                        <!-- /.direct-chat-img -->
-                                        <div class="direct-chat-text">
-                                            بله کاملا رایگان هست
-                                        </div>
-                                        <!-- /.direct-chat-text -->
-                                    </div>
-                                    <!-- /.direct-chat-msg -->
-
-                                    <!-- Message. Default to the left -->
-                                    <div class="direct-chat-msg">
-                                        <div class="direct-chat-info clearfix">
-                                            <span class="direct-chat-name pull-right">امین</span>
-                                            <span class="direct-chat-timestamp pull-left"> خرداد ساعت ۱۳:۳۲</span>
-                                        </div>
-                                        <!-- /.direct-chat-info -->
-                                        <img class="direct-chat-img" src="{{asset('dist/img/user1-128x128.jpg')}}" alt="message user image">
-                                        <!-- /.direct-chat-img -->
-                                        <div class="direct-chat-text">
-                                            از کجا میتونم دانلود کنم؟
-                                        </div>
-                                        <!-- /.direct-chat-text -->
-                                    </div>
-                                    <!-- /.direct-chat-msg -->
-
-                                    <!-- Message to the right -->
-                                    <div class="direct-chat-msg right">
-                                        <div class="direct-chat-info clearfix">
-                                            <span class="direct-chat-name pull-right">سارا</span>
-                                            <span class="direct-chat-timestamp pull-left"> خرداد ساعت ۱۳:۴۴</span>
-                                        </div>
-                                        <!-- /.direct-chat-info -->
-                                        <img class="direct-chat-img" src="{{asset('dist/img/user3-128x128.jpg')}}" alt="message user image">
-                                        <!-- /.direct-chat-img -->
-                                        <div class="direct-chat-text">
-                                            در منوی بالای صفحه روی دکمه دانلود رایگان قالب کلیک کنید
-                                        </div>
-                                        <!-- /.direct-chat-text -->
-                                    </div>
-                                    <!-- /.direct-chat-msg -->
-
-                                </div>
-                                <!--/.direct-chat-messages-->
-
-                                <!-- Contacts are loaded here -->
-                                <div class="direct-chat-contacts">
-                                    <ul class="contacts-list">
-                                        <li>
-                                            <a href="#">
-                                                <img class="contacts-list-img" src="{{asset('dist/img/user1-128x128.jpg')}}" alt="User Image">
-
-                                                <div class="contacts-list-info">
-                              <span class="contacts-list-name">
-                                علیرضا
-                                <small class="contacts-list-date pull-left">2/28/2015</small>
-                              </span>
-                                                    <span class="contacts-list-msg">مدیر کل سایت</span>
-                                                </div>
-                                                <!-- /.contacts-list-info -->
-                                            </a>
-                                        </li>
-                                        <!-- End Contact Item -->
-                                        <li>
-                                            <a href="#">
-                                                <img class="contacts-list-img" src="{{asset('dist/img/user7-128x128.jpg')}}" alt="User Image">
-
-                                                <div class="contacts-list-info">
-                              <span class="contacts-list-name">
-                                سارا
-                                <small class="contacts-list-date pull-left">2/23/2015</small>
-                              </span>
-                                                    <span class="contacts-list-msg">ناظر سایت</span>
-                                                </div>
-                                                <!-- /.contacts-list-info -->
-                                            </a>
-                                        </li>
-                                        <!-- End Contact Item -->
-                                        <li>
-                                            <a href="#">
-                                                <img class="contacts-list-img" src="{{asset('dist/img/user3-128x128.jpg')}}" alt="User Image">
-
-                                                <div class="contacts-list-info">
-                              <span class="contacts-list-name">
-                                نادیا
-                                <small class="contacts-list-date pull-left">2/20/2015</small>
-                              </span>
-                                                    <span class="contacts-list-msg">پشتیبانی</span>
-                                                </div>
-                                                <!-- /.contacts-list-info -->
-                                            </a>
-                                        </li>
-                                        <!-- End Contact Item -->
-                                        <li>
-                                            <a href="#">
-                                                <img class="contacts-list-img" src="{{asset('dist/img/user5-128x128.jpg')}}" alt="User Image">
-
-                                                <div class="contacts-list-info">
-                              <span class="contacts-list-name">
-                                نورا
-                                <small class="contacts-list-date pull-left">2/10/2015</small>
-                              </span>
-                                                    <span class="contacts-list-msg">پشتیبانی</span>
-                                                </div>
-                                                <!-- /.contacts-list-info -->
-                                            </a>
-                                        </li>
-                                        <!-- End Contact Item -->
-                                        <li>
-                                            <a href="#">
-                                                <img class="contacts-list-img" src="{{asset('dist/img/user6-128x128.jpg')}}" alt="User Image">
-
-                                                <div class="contacts-list-info">
-                              <span class="contacts-list-name">
-                                محمد
-                                <small class="contacts-list-date pull-left">1/27/2015</small>
-                              </span>
-                                                    <span class="contacts-list-msg">مدیر فنی</span>
-                                                </div>
-                                                <!-- /.contacts-list-info -->
-                                            </a>
-                                        </li>
-                                        <!-- End Contact Item -->
-                                        <li>
-                                            <a href="#">
-                                                <img class="contacts-list-img" src="{{asset('dist/img/user8-128x128.jpg')}}" alt="User Image">
-
-                                                <div class="contacts-list-info">
-                              <span class="contacts-list-name">
-                                نگین
-                                <small class="contacts-list-date pull-left">1/4/2015</small>
-                              </span>
-                                                    <span class="contacts-list-msg">گرافیست</span>
-                                                </div>
-                                                <!-- /.contacts-list-info -->
-                                            </a>
-                                        </li>
-                                        <!-- End Contact Item -->
-                                    </ul>
-                                    <!-- /.contatcts-list -->
-                                </div>
-                                <!-- /.direct-chat-pane -->
-                            </div>
-                            <!-- /.box-body -->
-                            <div class="box-footer">
-                                <form action="#" method="post">
-                                    <div class="input-group">
-                                        <input type="text" name="message" placeholder="پیام..." class="form-control">
-                                        <span class="input-group-btn">
-                          <button type="button" class="btn btn-warning btn-flat">ارسال</button>
-                        </span>
-                                    </div>
-                                </form>
-                            </div>
-                            <!-- /.box-footer-->
-                        </div>
-                        <!--/.direct-chat -->
-                    </div>
-                    <!-- /.col -->
-
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <!-- USERS LIST -->
                         <div class="box box-danger">
                             <div class="box-header with-border">
                                 <h3 class="box-title">آخرین کاربران</h3>
 
                                 <div class="box-tools pull-right">
-                                    <span class="label label-danger">۸ کاربر جدید</span>
+                                    <span class="label label-danger">{{$users->count()}} کاربر جدید</span>
                                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                                     </button>
                                     <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
@@ -495,52 +301,27 @@
                             <!-- /.box-header -->
                             <div class="box-body no-padding">
                                 <ul class="users-list clearfix">
+                                    @foreach($users as $key=>$user_cr)
+                                    @if($key<8)
                                     <li>
-                                        <img src="{{asset('dist/img/user1-128x128.jpg')}}" alt="User Image">
-                                        <a class="users-list-name" href="#">الکساندر گراهامبل</a>
-                                        <span class="users-list-date">امروز</span>
+                                        <a href="{{url('admin/users/'.$user_cr->id)}}">
+                                        @if($user_cr->photo_id)
+                                            <img src="{{$user_cr->photo->path}}" alt="User Image" class="img-circle rounded-circle" width="70" height="70">
+                                        @else
+                                            <img src="{{asset('images/profile-icon.png')}}" class="img-circle rounded-circle" width="70" height="70" alt="User Image">
+                                        @endif
+                                        </a>
+                                        <a class="users-list-name" href="{{url('admin/users/'.$user_cr->id)}}">{{Str::limit($user_cr->name,20)}}</a>
+                                        <span class="users-list-date">{{\Hekmatinasser\Verta\Verta::instance($user_cr->created_at)->formatDifference()}}</span>
                                     </li>
-                                    <li>
-                                        <img src="{{asset('dist/img/user8-128x128.jpg')}}" alt="User Image">
-                                        <a class="users-list-name" href="#">نیوتن</a>
-                                        <span class="users-list-date">دیروز</span>
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('dist/img/user7-128x128.jpg')}}" alt="User Image">
-                                        <a class="users-list-name" href="#">جودی ابوت</a>
-                                        <span class="users-list-date">۱۴ شهریور</span>
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('dist/img/user6-128x128.jpg')}}" alt="User Image">
-                                        <a class="users-list-name" href="#">اوباما</a>
-                                        <span class="users-list-date">۱۵ شهریور</span>
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('dist/img/user2-160x160.jpg')}}" alt="User Image">
-                                        <a class="users-list-name" href="#">استیو جابز</a>
-                                        <span class="users-list-date">۳۰ شهریور</span>
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('dist/img/user5-128x128.jpg')}}" alt="User Image">
-                                        <a class="users-list-name" href="#">ادیسون</a>
-                                        <span class="users-list-date">۲ هفته پیش</span>
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('dist/img/user4-128x128.jpg')}}" alt="User Image">
-                                        <a class="users-list-name" href="#">شنل قرمزی</a>
-                                        <span class="users-list-date">۲ ماه پیش</span>
-                                    </li>
-                                    <li>
-                                        <img src="{{asset('dist/img/user3-128x128.jpg')}}" alt="User Image">
-                                        <a class="users-list-name" href="#">سرندیپیتی</a>
-                                        <span class="users-list-date">۳ سال پیش</span>
-                                    </li>
+                                        @endif
+                                    @endforeach
                                 </ul>
                                 <!-- /.users-list -->
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer text-center">
-                                <a href="javascript:void(0)" class="uppercase">نمایش همه کاربران</a>
+                                <a href="{{url('admin/users')}}" class="uppercase">نمایش همه کاربران</a>
                             </div>
                             <!-- /.box-footer -->
                         </div>
@@ -650,62 +431,62 @@
             <div class="col-md-4">
                 <!-- Info Boxes Style 2 -->
                 <div class="info-box bg-yellow">
-                    <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+                    <span class="info-box-icon"><i class="fa fa-archive ft-22"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">فهرست</span>
-                        <span class="info-box-number">5,200</span>
+                        <span class="info-box-text">مقالات</span>
+                        <span class="info-box-number">{{$arrays['articleCount']}}</span>
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: 50%"></div>
+                            <div class="progress-bar" style="width: 38%"></div>
                         </div>
                         <span class="progress-description">
-                  ۵۰ درصد افزایش در ۳۰ روز گذشته
+                  38 درصد افزایش در ۳۰ روز گذشته
                 </span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
                 <div class="info-box bg-green">
-                    <span class="info-box-icon"><i class="ion ion-ios-heart-outline"></i></span>
+                    <span class="info-box-icon"><i class="fa fa-file-archive"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">برگزیده ها</span>
-                        <span class="info-box-number">92,050</span>
+                        <span class="info-box-text">مجلات</span>
+                        <span class="info-box-number">{{$arrays['gazetteCount']}}</span>
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: 20%"></div>
+                            <div class="progress-bar" style="width: 45%"></div>
                         </div>
                         <span class="progress-description">
-                  ۲۰ درصد افزایش در ۳۰ روز گذشته
+                  45 درصد افزایش در ۳۰ روز گذشته
                 </span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
                 <div class="info-box bg-red">
-                    <span class="info-box-icon"><i class="ion ion-ios-cloud-download-outline"></i></span>
+                    <span class="info-box-icon"><i class="fa fa-download"></i></span>
 
                     <div class="info-box-content">
                         <span class="info-box-text">دانلود</span>
-                        <span class="info-box-number">114,381</span>
+                        <span class="info-box-number">{{$arrays['downloadCount']}}</span>
 
                         <div class="progress">
-                            <div class="progress-bar" style="width: 70%"></div>
+                            <div class="progress-bar" style="width: 30%"></div>
                         </div>
                         <span class="progress-description">
-                  ۷۰ درصد افزایش در ۳۰ روز گذشته
+                  30 درصد افزایش در ۳۰ روز گذشته
                 </span>
                     </div>
                     <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
                 <div class="info-box bg-aqua">
-                    <span class="info-box-icon"><i class="ion-ios-chatbubble-outline"></i></span>
+                    <span class="info-box-icon"><i class="fa fa-user-graduate"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">پیام های پشتیبانی</span>
-                        <span class="info-box-number">163,921</span>
+                        <span class="info-box-text">موفقیت</span>
+                        <span class="info-box-number">{{$arrays['achievementCount']}}</span>
 
                         <div class="progress">
                             <div class="progress-bar" style="width: 40%"></div>
@@ -717,62 +498,12 @@
                     <!-- /.info-box-content -->
                 </div>
                 <!-- /.info-box -->
-
-                <div class="box box-default">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">مرورگرها</h3>
-
-                        <div class="box-tools pull-right">
-                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                            </button>
-                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i
-                                    class="fa fa-times"></i></button>
-                        </div>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <div class="chart-responsive">
-                                    <canvas id="pieChart" height="150"></canvas>
-                                </div>
-                                <!-- ./chart-responsive -->
-                            </div>
-                            <!-- /.col -->
-                            <div class="col-md-4">
-                                <ul class="chart-legend clearfix">
-                                    <li><i class="fa fa-circle-o text-red"></i> Chrome</li>
-                                    <li><i class="fa fa-circle-o text-green"></i> IE</li>
-                                    <li><i class="fa fa-circle-o text-yellow"></i> FireFox</li>
-                                    <li><i class="fa fa-circle-o text-aqua"></i> Safari</li>
-                                    <li><i class="fa fa-circle-o text-light-blue"></i> Opera</li>
-                                    <li><i class="fa fa-circle-o text-gray"></i> دیگر</li>
-                                </ul>
-                            </div>
-                            <!-- /.col -->
-                        </div>
-                        <!-- /.row -->
-                    </div>
-                    <!-- /.box-body -->
-                    <div class="box-footer no-padding">
-                        <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#">ایران
-                                    <span class="pull-right text-red"><i class="fa fa-angle-down"></i> 12%</span></a></li>
-                            <li><a href="#">آمریکا <span class="pull-right text-green"><i class="fa fa-angle-up"></i>
-                        4%</span></a>
-                            </li>
-                            <li><a href="#">انگلستان
-                                    <span class="pull-right text-yellow"><i class="fa fa-angle-left"></i> 0%</span></a></li>
-                        </ul>
-                    </div>
-                    <!-- /.footer -->
-                </div>
                 <!-- /.box -->
 
                 <!-- PRODUCT LIST -->
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">آخرین محصولات</h3>
+                        <h3 class="box-title">آخرین دوره های آموزشی</h3>
 
                         <div class="box-tools pull-right">
                             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -784,63 +515,25 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <ul class="products-list product-list-in-box">
+                            @foreach($courses as $course)
                             <li class="item">
                                 <div class="product-img">
-                                    <img src="{{asset('dist/img/default-50x50.gif')}}" alt="Product Image">
+                                    <a href="{{url('admin/courses/'.$course->id)}}">
+                                        <img src="{{$course->photo->path}}" alt="Product Image">
+                                    </a>
                                 </div>
                                 <div class="product-info">
-                                    <a href="javascript:void(0)" class="product-title">آیفون ۵ اس
-                                        <span class="label label-warning pull-left">$1800</span></a>
-                                    <span class="product-description">
-                        گوشی اپل
-                      </span>
+                                    <a href="{{url('admin/courses/'.$course->id)}}" class="product-title">{{$course->title}}
+                                        <span class="label label-warning pull-left">{{$course->presentPrice()}} تومان</span> </a>
                                 </div>
                             </li>
-                            <!-- /.item -->
-                            <li class="item">
-                                <div class="product-img">
-                                    <img src="{{asset('dist/img/default-50x50.gif')}}" alt="Product Image">
-                                </div>
-                                <div class="product-info">
-                                    <a href="javascript:void(0)" class="product-title">دوچرخه کوهستان
-                                        <span class="label label-info pull-left">$700</span></a>
-                                    <span class="product-description">
-                        دوچرخه حرفه ای و زیبا
-                      </span>
-                                </div>
-                            </li>
-                            <!-- /.item -->
-                            <li class="item">
-                                <div class="product-img">
-                                    <img src="{{asset('dist/img/default-50x50.gif')}}" alt="Product Image">
-                                </div>
-                                <div class="product-info">
-                                    <a href="javascript:void(0)" class="product-title">کنسول مایکروسافت <span
-                                            class="label label-danger pull-left">$350</span></a>
-                                    <span class="product-description">
-                        کنسول بازی حرفه ای و قوی
-                      </span>
-                                </div>
-                            </li>
-                            <!-- /.item -->
-                            <li class="item">
-                                <div class="product-img">
-                                    <img src="{{asset('dist/img/default-50x50.gif')}}" alt="Product Image">
-                                </div>
-                                <div class="product-info">
-                                    <a href="javascript:void(0)" class="product-title">لپ تاپ ایسر
-                                        <span class="label label-success pull-left">$399</span></a>
-                                    <span class="product-description">
-                        لپ تاپ اقتصادی
-                      </span>
-                                </div>
-                            </li>
-                            <!-- /.item -->
+                            @endforeach
+
                         </ul>
                     </div>
                     <!-- /.box-body -->
                     <div class="box-footer text-center">
-                        <a href="javascript:void(0)" class="uppercase">نمایش همه</a>
+                        <a href="{{url('admin/courses')}}" class="uppercase">نمایش همه</a>
                     </div>
                     <!-- /.box-footer -->
                 </div>

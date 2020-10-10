@@ -31,4 +31,13 @@ class Category extends Model
     {
         return $this->hasMany(Course::class);
     }
+
+    public function podcasts()
+    {
+        return $this->hasMany(Podcast::class);
+    }
+    public function gazettes()
+    {
+        return $this->hasMany(Gazette::class);
+    }
 }

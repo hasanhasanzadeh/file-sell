@@ -35,12 +35,12 @@ class Podcast extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function category()
     {
-        return $this->hasOne(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function photo()
@@ -51,5 +51,10 @@ class Podcast extends Model
     public function presentPrice()
     {
         return number_format($this->price,0);
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class,'commentable');
     }
 }

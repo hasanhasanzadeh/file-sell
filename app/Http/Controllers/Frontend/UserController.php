@@ -5,12 +5,10 @@ namespace App\Http\Controllers\Frontend;
 use App\ActivationCode;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CodeRequest;
-use App\Http\Requests\ProfileUpdateRequest;
+use App\Http\Requests\EmailRequest;
 use App\User;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
+
 
 class UserController extends Controller
 {
@@ -46,6 +44,16 @@ class UserController extends Controller
     public function verify()
     {
         return response()->view('auth.verify');
+    }
+
+    public function emailSave(EmailRequest $request)
+    {
+        $user=User::findOrFail(auth()->user()->id);
+        $user->email=$request->email;
+        $user->email_status=1;
+        $user->save();
+        alert()->success('ایمیل شما با موفقیت در خبرنامه ثبت شد.','عضویت در خبرنامه')->persistent("بستن");
+        return back();
     }
 
 }

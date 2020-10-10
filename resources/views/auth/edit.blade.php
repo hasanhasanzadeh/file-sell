@@ -26,9 +26,15 @@
                         </div>
                         <hr>
                         <div class="nav-item menu-active">
-                            <a href="{{url('/profile')}}" class="nav-link mr-2">
+                            <a href="{{url('/profile')}}" class="nav-link">
                                 <i class="fa fa-id-card ft-22 p-2"></i>
                                 <span>اطلاعات کاربری</span>
+                            </a>
+                        </div>
+                        <div class="nav-item">
+                            <a href="{{url('/achievements')}}" class="nav-link a-link">
+                                <i class="fa fa-user-graduate ft-22 p-2"></i>
+                                <span>موفقیت های شخصی</span>
                             </a>
                         </div>
                         <div class="nav-item">
@@ -47,6 +53,12 @@
                             <a href="#" class="nav-link a-link">
                                 <i class="fa fa-heart ft-22 p-2"></i>
                                 <span>لیست علاقه مندی ها</span>
+                            </a>
+                        </div>
+                        <div class="nav-item">
+                            <a href="{{url('/advertisements')}}" class="nav-link a-link">
+                                <i class="fas fa-bullhorn ft-22 p-2"></i>
+                                <span>آگهی ها</span>
                             </a>
                         </div>
                     </nav>
@@ -82,8 +94,15 @@
                                     <input type="password" name="password" id="password" class="form-control" placeholder="جهت تغییر کلمه عبور خود را وارد کنید...">
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">ایمیل</label>
+                                    <label for="email">ایمیل</label>
                                     <input type="email" name="email" value="{{$user->email}}" id="email" class="form-control" placeholder="ایمیل خود را وارد کنید...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email_status">عضویت در خبر نامه</label>
+                                    <select name="email_status" class="form-control" id="email_status">
+                                        <option value="1" @if($user->email_status) selected @endif>فعال</option>
+                                        <option value="0" @if(!$user->email_status) selected @endif>غیر فعال</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>عکس پروفایل</label>

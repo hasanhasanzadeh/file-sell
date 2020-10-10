@@ -179,22 +179,48 @@ desired effect
                 <li><a href="{{url('/admin/gazettes')}}"><i class="fa fa-file-alt"></i> <span>مجله</span></a></li>
                 @can('isAdmin')
                 <li><a href="{{url('/admin/users')}}"><i class="fa fa-users"></i> <span>کاربران</span></a></li>
-                @endcan
-                <li><a href="{{url('/admin/orders')}}"><i class="fa fa-shopping-cart"></i> <span>سفارشات</span></a></li>
-                <li class="treeview">
-                    <a href="#"><i class="fa fa-comments"></i> <span>دیدگاه ها</span>
-                        <span class="pull-left-container">
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-comments"></i> <span>دیدگاه ها</span>
+                            <span class="pull-left-container">
                 <i class="fa fa-angle-right pull-left"></i>
                 </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="{{url('admin/comments/true-status')}}" class="p-2"> نظرات تأیید شده  <span class="badge badge-warning rounded-pill "> 3 </span></a>  </li>
-                        <li><a href="{{url('admin/comments/false-status')}}" class="p-2">نظرات تأیید نشده  <span class="badge badge-primary rounded-pill"> 2 </span></a></li>
-                    </ul>
-                </li>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{url('admin/comments/true-status')}}" class="p-2"> نظرات تأیید شده  </a>  </li>
+                            <li><a href="{{url('admin/comments/false-status')}}" class="p-2">نظرات تأیید نشده  </a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-user-graduate"></i> <span>موفقیت ها</span>
+                            <span class="pull-left-container">
+                <i class="fa fa-angle-right pull-left"></i>
+                </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{url('admin/achievements/true-status')}}" class="p-2"> موفقیت تأیید شده  </a>  </li>
+                            <li><a href="{{url('admin/achievements/false-status')}}" class="p-2">موفقیت تأیید نشده  </a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#"><i class="fa fa-bullhorn"></i> <span>آگهی ها</span>
+                            <span class="pull-left-container">
+                <i class="fa fa-angle-right pull-left"></i>
+                </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{url('admin/advertisements/true-status')}}" class="p-2"> آگهی های تأیید شده  </a>  </li>
+                            <li><a href="{{url('admin/advertisements/false-status')}}" class="p-2">آگهی های تأیید نشده  </a></li>
+                        </ul>
+                    </li>
+                @endcan
+                <li><a href="{{url('/admin/orders')}}"><i class="fa fa-shopping-cart"></i> <span>سفارشات</span></a></li>
+
                 <li><a href="{{url('/admin/newsletter')}}"><i class="fa fa-envelope"></i> <span>خبرنامه</span></a></li>
                 <li><a href="{{url('/admin/coupons')}}"><i class="fa fa-percent"></i> <span>تخفیفات</span></a></li>
                 <li><a href="{{url('/admin/us-contact')}}"><i class="fa fa-commenting"></i> <span>ارتباط با ما</span></a></li>
+                    @can('isAdmin')
+                <li><a href="{{url('/admin/settings')}}"><i class="fa fa-sliders-h"></i> <span>تنظیمات </span></a></li>
+                    @endcan
             </ul>
             <!-- /.sidebar-menu -->
         </section>

@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Events\SendSMSCode;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Setting;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use SEO;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -24,6 +27,14 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+    public function showLoginForm()
+    {
+        $setting=Setting::first();
+        SEO::setTitle($setting->meta_title);
+        SEO::setDescription($setting->meta_description);
+        SEOMeta::addKeyword(explode('-', $setting->meta_keywords));
+        return view('auth.login',compact(['setting']));
+    }
 
     public function username()
     {

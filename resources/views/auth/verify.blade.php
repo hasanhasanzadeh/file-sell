@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.apps')
 
 @section('title')
     تایید شماره موبایل
@@ -14,11 +14,6 @@
                 <p class="text-center ft-13 w-75 m-auto">
                     در صورت دریافت کد تایید فقط ۵ دقیقه وقت دارید تا آن را تایید نمایید در غیر این صورت منقضی شده و دوباره ارسال کد کلیک کنید
                 </p>
-            </div>
-        </div>
-        <div class="row mt-2">
-            <div class="col-12 col-sm-8 col-md-6 m-auto">
-                @include('partials.errors')
             </div>
         </div>
         <div class="row">

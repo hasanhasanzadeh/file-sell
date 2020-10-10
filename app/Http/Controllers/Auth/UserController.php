@@ -2,19 +2,27 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Category;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\ProfileRequest;
+use App\Setting;
 use App\User;
+use Artesaos\SEOTools\Facades\SEOMeta;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
+use SEO;
 
 class UserController extends Controller
 {
     public function profile()
     {
+        $setting=Setting::first();
+        SEO::setTitle($setting->meta_title);
+        SEO::setDescription($setting->meta_description);
+        SEOMeta::addKeyword(explode('-', $setting->meta_keywords));
+        $categories=Category::with('children')->where('parent_id',null)->get();
+
         if (auth()->check()){
             $user=User::with('photo')->findOrFail(auth()->user()->id);
-            return response()->view('auth.profile',compact(['user']));
+            return response()->view('auth.profile',compact(['user','setting','categories']));
         }
         else
         {
@@ -25,9 +33,15 @@ class UserController extends Controller
 
     public function profileEdit()
     {
+        $setting=Setting::first();
+        SEO::setTitle($setting->meta_title);
+        SEO::setDescription($setting->meta_description);
+        SEOMeta::addKeyword(explode('-', $setting->meta_keywords));
+        $categories=Category::with('children')->where('parent_id',null)->get();
+
         if (auth()->check()){
             $user=User::with('photo')->findOrFail(auth()->user()->id);
-            return response()->view('auth.edit',compact(['user']));
+            return response()->view('auth.edit',compact(['user','setting','categories']));
         }
         else
         {
@@ -48,10 +62,12 @@ class UserController extends Controller
         $profile=User::findOrFail(auth()->user()->id);
         $profile->name=$request->name;
         $profile->email=$request->email;
+        $profile->email_status=$request->email_status;
         $profile->mobile=$request->mobile;
         $profile->photo_id=$request->photo_id;
         $profile->save();
         alert()->success('پروفایل '.$profile->name.' با موفقیت بروزرسانی شد.','پروفایل')->persistent("بستن");
         return redirect('/profile');
     }
+
 }

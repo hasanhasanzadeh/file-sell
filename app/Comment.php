@@ -28,6 +28,23 @@ class Comment extends Model
 
     public function comments()
     {
-        return $this->hasMany(Comment::class,'parent_id');
+//        return $this->hasMany(Comment::class,'parent_id','id')->where('status',1)->latest();
+        return $this->hasMany(Comment::class,'parent_id','id');
+    }
+
+    public function getBodyAttribute($value)
+    {
+      return  $this->attributes['body']=str_replace(PHP_EOL,'<br>',$value);
+    }
+
+    public function successFull()
+    {
+        $success=Comment::where('status',1)->get();
+        return $success->count();
+    }
+    public function unSuccessFull()
+    {
+        $success=Comment::where('status',0)->get();
+        return $success->count();
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.apps')
 
 @section('title')
     ثبت نام در وب سایت
@@ -16,8 +16,6 @@
                         در عرض چند ثاینه در سایت عضو شوید تا بتوانید از امکانات سایت بصورت کامل استفاده کنید. همه این امکانات در کنار هم قرار گرفته اند تا به شما کمک کنند به ساترین روش، جدیدترین و کاربردی ترین آموزش های روز جهان را یاد بگیرید.
                     </p>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-12 col-sm-8 col-md-6 m-auto">
                     <div class="card my-4 bg-light">
                         <div class="card-header text-center">

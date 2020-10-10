@@ -56,7 +56,7 @@
                     <i class="fa fa-eye"></i>
                     </span>
                     <span class="p-1">
-                    23
+                    {{count($article->comments) }}
                     <i class="fa fa-comment"></i>
                     </span>
 
@@ -123,7 +123,7 @@
                     <div class="row">
                         <div class="col-8">
                             <h5 class="p-2 m-2">
-                                محصولات پیشنهادی
+                                مقالات پیشنهادی
                             </h5>
                         </div>
                         <div class="col-4 text-left">
@@ -160,7 +160,7 @@
                                             <i class="far fa-eye"></i>
                                         </span>
                                         <span class="p-1">
-                                            24
+                                            {{count($article_c->comments) }}
                                             <i class="far fa-comment"></i>
                                         </span>
                                     </div>

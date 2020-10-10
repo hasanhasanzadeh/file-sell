@@ -6,6 +6,7 @@ use App\Comment;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class CommentController extends Controller
 {
@@ -13,6 +14,10 @@ class CommentController extends Controller
     {
         $user=User::with('photo')->findOrfail(auth()->user()->id);
         $comments=Comment::where('status',1)->latest()->paginate(10);
+        if (!Gate::allows('isAdmin')){
+            alert()->error('دسترسی به این قسمت مجاز نیست.','دسترسی')->persistent("بستن");
+            abort(403,"دسترسی به این قسمت ندارید");
+        }
         return  response()->view('admin.comments.trueStatus',compact(['comments','user']));
     }
 
@@ -20,6 +25,10 @@ class CommentController extends Controller
     {
         $user=User::with('photo')->findOrfail(auth()->user()->id);
         $comments=Comment::where('status',0)->latest()->paginate(10);
+        if (!Gate::allows('isAdmin')){
+            alert()->error('دسترسی به این قسمت مجاز نیست.','دسترسی')->persistent("بستن");
+            abort(403,"دسترسی به این قسمت ندارید");
+        }
         return  response()->view('admin.comments.falseStatus',compact(['comments','user']));
     }
 
