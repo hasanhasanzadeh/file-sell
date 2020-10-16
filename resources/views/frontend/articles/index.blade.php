@@ -156,7 +156,7 @@
         </div>
     </div>
 
-    <div class="content-propaganda my-3">
+    <div class="content-propaganda my-3 h-100">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
@@ -192,9 +192,9 @@
                                 </div>
                                 <div class="card-footer">
                                     <div class="custom-controller-inline">
-                                        <span class="p-1">
-                                            {{$article->likeCount}}
-                                            <i class="far fa-heart"></i>
+                                        <span class="p-1" title="افزودن به مورد علاقه ها">
+                                            {{$article->likes->count()}}
+                                            @include('layouts.like',['subject'=>$article])
                                         </span>
                                         <span class="p-1">
                                            {{$article->viewCount}}

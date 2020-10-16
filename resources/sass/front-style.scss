@@ -303,32 +303,32 @@ p{
 .bg-image {
     width:100%;
     height:400px;
-    background:linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.43)), url("../images/about.jpg")  no-repeat ;
+    background:linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.43)), url("../../images/about.jpg")  no-repeat ;
     background-size:cover;
 }
 .contact-us {
     width:100%;
     height:400px;
-    background:linear-gradient(rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), url("../images/desk-144.jpg")  no-repeat ;
+    background:linear-gradient(rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), url("../../images/desk-144.jpg")  no-repeat ;
     background-size:cover;
 }
 
 .faq{
     width:100%;
     height:400px;
-    background:linear-gradient(rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), url("../images/fqd.jpg")  no-repeat ;
+    background:linear-gradient(rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), url("../../images/fqd.jpg")  no-repeat ;
     background-size:cover;
 }
 .ads{
     width:100%;
     height:400px;
-    background:linear-gradient(rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), url("../images/Programmatic-Campaign-Setup-In-Four-Steps.jpg")  no-repeat ;
+    background:linear-gradient(rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), url("../../images/Programmatic-Campaign-Setup-In-Four-Steps.jpg")  no-repeat ;
     background-size:cover;
 }
 .law{
     width:100%;
     height:400px;
-    background:linear-gradient(rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), url("../images/oie_91518195nZfA6V8.jpg")  no-repeat ;
+    background:linear-gradient(rgba(0, 0, 0, 0.51), rgba(0, 0, 0, 0.51)), url("../../images/oie_91518195nZfA6V8.jpg")  no-repeat ;
     background-size:cover;
 }
 .podcast-show{
@@ -470,4 +470,12 @@ a.dropdown-toggle:hover{
 .ft-iranYekan{
     font-family: iran-yekan !important;
 }
-
+.unstyle{
+    background: none !important;
+    color: inherit !important;
+    border: none !important;
+    padding: 0 !important;
+    font: inherit !important;
+    cursor: pointer !important;
+    outline: inherit !important;
+}

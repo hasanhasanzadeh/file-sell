@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\ActivationCode;
+use App\Category;
+use App\Coupon;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CodeRequest;
 use App\Http\Requests\EmailRequest;
+use App\Setting;
 use App\User;
+use Artesaos\SEOTools\Facades\SEOMeta;
 use Carbon\Carbon;
 
 
@@ -43,7 +47,14 @@ class UserController extends Controller
 
     public function verify()
     {
-        return response()->view('auth.verify');
+        $coupon=Coupon::where('expired','>',Carbon::now())->where('status',1)->latest()->first();
+        $setting=Setting::first();
+        SEO::setTitle($setting->meta_title);
+        SEO::setDescription($setting->meta_description);
+        SEOMeta::addKeyword(explode('-', $setting->meta_keywords));
+        $categories=Category::where('parent_id',null)->with('children')->get();
+
+        return response()->view('auth.verify',compact('categories','setting','coupon'));
     }
 
     public function emailSave(EmailRequest $request)

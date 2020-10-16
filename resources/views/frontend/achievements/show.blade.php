@@ -20,14 +20,14 @@
         </ol>
 
     </div>
-    <div class="profile">
+    <div class="profile h-100">
         <div class="container-fluid">
             <div class="row py-2">
                 <div class="col-12 col-md-12 col-sm-12">
                     <div class="box bg-white rounded p-2 m-2">
                         <div class="box-header">
                             <div class="box-title py-3 my-2 text-center">
-                                <span class="text-center h4">موفقیت های کاربران {{$achievement->title}}</span>
+                                <span class="text-center h4"> {{$achievement->title}}</span>
                                 <div class="float-left">
                                     <a href="{{route('achievements.create')}}" class="btn btn-info">
                                         <i class="fa fa-plus"></i>

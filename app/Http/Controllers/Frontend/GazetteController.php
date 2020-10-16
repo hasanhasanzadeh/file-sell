@@ -3,18 +3,20 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Category;
+use App\Coupon;
 use App\Gazette;
 use App\Http\Controllers\Controller;
 use App\Setting;
 use App\User;
 use Artesaos\SEOTools\Facades\SEOMeta;
+use Carbon\Carbon;
 use SEO;
 
 class GazetteController extends Controller
 {
     public function index()
     {
-
+        $coupon=Coupon::where('expired','>',Carbon::now())->where('status',1)->latest()->first();
         $gazettes=Gazette::with('photo')->latest()->take(12)->get();
         $setting=Setting::first();
         $gazette=$gazettes[0];
@@ -25,13 +27,14 @@ class GazetteController extends Controller
         if(auth()->check())
         {
             $user=User::with('photo')->findOrFail(auth()->user()->id);
-            return view('frontend.gazettes.index',compact(['gazettes','user','setting','categories']));
+            return view('frontend.gazettes.index',compact(['gazettes','user','setting','categories','coupon']));
         }
-        return view('frontend.gazettes.index',compact(['gazettes','setting','categories']));
+        return view('frontend.gazettes.index',compact(['gazettes','setting','categories','coupon']));
     }
 
     public function show($slug)
     {
+        $coupon=Coupon::where('expired','>',Carbon::now())->where('status',1)->latest()->first();
         $gazette=Gazette::with('photo','category')->whereSlug($slug)->first();
         $gazette->increment('viewCount');
         $setting=Setting::first();
@@ -46,8 +49,8 @@ class GazetteController extends Controller
         if(auth()->check())
         {
             $user=User::with('photo')->findOrFail(auth()->user()->id);
-            return view('frontend.gazettes.show',compact(['gazette','user','gazettes','setting','comments','categories']));
+            return view('frontend.gazettes.show',compact(['gazette','user','gazettes','setting','comments','categories','coupon']));
         }
-        return view('frontend.gazettes.show',compact(['gazette','gazettes','comments','setting','categories']));
+        return view('frontend.gazettes.show',compact(['gazette','gazettes','comments','setting','categories','coupon']));
     }
 }

@@ -19,10 +19,10 @@
                     <h6>بخش های سایت</h6>
                     <hr class="bg-secondary">
                         <ul class="list-unstyled pr-0 mr-0">
-                            <li class="nav-item"><a class="nav-link text-light" href="#">قوانین و مقررات</a></li>
-                            <li class="nav-item"><a class="nav-link text-light" href="#">تبلیغات</a></li>
-                            <li class="nav-item"><a class="nav-link text-light" href="#">درباره ما</a></li>
-                            <li class="nav-item"><a class="nav-link text-light" href="#">ارتباط با ما</a></li>
+                            <li class="nav-item"><a class="nav-link text-light" href="{{url('/law')}}">قوانین و مقررات</a></li>
+                            <li class="nav-item"><a class="nav-link text-light" href="{{url('/adv')}}">تبلیغات</a></li>
+                            <li class="nav-item"><a class="nav-link text-light" href="{{url('/about')}}">درباره ما</a></li>
+                            <li class="nav-item"><a class="nav-link text-light" href="{{url('/contact-us')}}">ارتباط با ما</a></li>
                         </ul>
                 </div>
             </div>

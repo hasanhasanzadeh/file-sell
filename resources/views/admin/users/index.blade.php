@@ -63,7 +63,7 @@
                                         <img src="{{asset('dist/img/avatars2.png')}}" class="img-fluid img-circle" height="75" width="75" alt="">
                                     @endif
                                 </td>
-                                <td><a href="{{route('users.show',$user_au->id)}}" class="list-link">{{$user->name}}</a></td>
+                                <td><a href="{{route('users.show',$user_au->id)}}" class="list-link">{{$user_au->name}}</a></td>
                                 <td>{{$user_au->mobile}}</td>
                                 <td>
                                     @if($user_au->comments==null)

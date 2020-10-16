@@ -14,19 +14,11 @@ use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
-    public $trueCount;
-    public $falseCount;
-    public function counts()
-    {
-         $this->trueCount=Comment::where('status',1)->count();
-         $this->falseCount=Comment::where('status',0)->count();
-    }
     public function index()
     {
-        $this->counts();
         $user=User::with('photo')->findOrfail(auth()->user()->id);
         $articles=Article::latest()->paginate(10);
-        return  response()->view('admin.articles.index',compact(['articles','user','tureCount','falseCount']));
+        return  response()->view('admin.articles.index',compact(['articles','user']));
     }
 
     public function create()

@@ -1,21 +1,22 @@
+@if(!empty($coupon))
 <div class="coupon-banner ">
-    <a href="#" class="text-decoration-none text-light">
+    <a href="{{route('coupon.show',$coupon->id)}}" class="text-decoration-none text-light">
         <h5 class="text-center">
-            تخفیف به مناسبت عید قربان
+            {{$coupon->title}}
             <i class="fa fa-arrow-circle-left"></i>
         </h5>
     </a>
 </div>
+@endif
 <header id="header" class="header">
     <div class="header-top bg-dark custom-control-inline">
         <nav class="nav justify-content-start">
             <a class="nav-link" target="_blank" href="{{$setting->telegram}}">کانال تلگرام</a>
-            <a class="nav-link" href="#">درباره {{$setting->title}}</a>
-            <a class="nav-link" href="#">همکاری با ما</a>
+            <a class="nav-link" href="{{url('/about')}}">درباره ما</a>
         </nav>
         <nav class="nav d-none d-md-flex mr-auto">
-            <a class="nav-link" href="#">سوالات متداول</a>
-            <a class="nav-link" href="#">ارتباط با ما</a>
+            <a class="nav-link" href="{{url('/faq')}}">سوالات متداول</a>
+            <a class="nav-link" href="{{url('/contact-us')}}">ارتباط با ما</a>
         </nav>
     </div>
     <hr class="p-0 m-0 shadow">
@@ -62,7 +63,7 @@
                                 <i class="fa fa-money-check-alt"></i>
                                <span class="px-1"> بخش مالی</span>
                             </a>
-                            <a href="#" class="dropdown-item">
+                            <a href="{{url('/likes')}}" class="dropdown-item">
                                 <i class="fa fa-heart"></i>
                                 <span class="px-1">لیست علاقه مندی</span>
                             </a>
@@ -86,9 +87,8 @@
             <div class="container-fluid text-center">
                 <div class="row vw-100">
                     <div class="col-9">
-                        <a class="navbar-brand" href="#">
-                            <h5>وب سایت سفیر</h5>
-                            <h3 class="text-danger">WEB SAFIRE</h3>
+                        <a class="navbar-brand" href="{{url('/')}}">
+                            <h3 class="text-danger">{{$setting->title}}</h3>
                         </a>
                     </div>
                     <div class="col-3 my-auto">
@@ -111,12 +111,12 @@
 
                     @if(!Auth::check())
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{url('/register')}}">
                             <span class="h5 p-2">عضویت</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{url('/login')}}">
                             <span class="h5 p-2">ورود</span>
                         </a>
                     </li>
@@ -143,7 +143,7 @@
                                     <i class="fa fa-money-check-alt"></i>
                                     <span class="px-1"> بخش مالی</span>
                                 </a>
-                                <a href="#" class="dropdown-item">
+                                <a href="{{url('/likes')}}" class="dropdown-item">
                                     <i class="fa fa-heart"></i>
                                     <span class="px-1">لیست علاقه مندی</span>
                                 </a>

@@ -9,6 +9,7 @@ class Contact extends Model
     protected $table='contact_us';
     protected $fillable=[
         'user_id',
+        'title',
         'description',
         'created_at',
         'updated_at',
@@ -16,6 +17,6 @@ class Contact extends Model
 
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 }

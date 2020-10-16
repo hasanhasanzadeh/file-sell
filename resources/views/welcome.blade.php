@@ -79,11 +79,11 @@
                                                 </div>
                                                 <div class="card-footer">
                                                     <div class="custom-controller-inline">
-                                        <span class="p-1">
-                                            {{$course->likeCount}}
-                                            <i class="far fa-heart"></i>
-                                        </span>
-                                                        <span class="p-1">
+                                                <span class="p-1" title="افزودن به مورد علاقه ها">
+                                                {{$course->likes->count()}}
+                                                @include('layouts.like',['subject'=>$course])
+                                                </span>
+                                                        <span class="p-1" title="دیدگاه ها">
                                                            {{count($course->comments)}}
                                                             <i class="fa fa-comments"></i>
                                                         </span>
@@ -123,10 +123,10 @@
                                                 </div>
                                                 <div class="card-footer">
                                                     <div class="custom-controller-inline">
-                                        <span class="p-1">
-                                            {{$course->likeCount}}
-                                            <i class="far fa-heart"></i>
-                                        </span>
+                                                <span class="p-1" title="افزودن به مورد علاقه ها">
+                                          {{$course->likes->count()}}
+                                           @include('layouts.like',['subject'=>$course])
+                                    </span>
                                                         <span class="p-1 text-danger font-weight-bold">
                                             {{$course->presentPrice()}}
                                             تومان
@@ -149,7 +149,7 @@
         </div>
     </div>
 
-    <div class="content-method ">
+    <div class="content-method h-100">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-md-6">
@@ -172,9 +172,9 @@
                                     {{$gazette->title}}
                                 </h6>
                             </a>
-                            <span class="tf-12  text-justify">
-                            {{Str::limit($gazette->description,50)}}
-                        </span>
+                            <div class="tf-12  text-justify">
+                            {{Str::limit($gazette->description,100)}}
+                            </div>
                         </div>
                     </div>
                         @endif
@@ -183,7 +183,7 @@
                 <div class="col-12 col-md-6">
                     <div class="row p-2 m-2">
                         <div class="col-7">
-                            <div class="h5">
+                            <div class="h6 font-weight-bold">
                                 اخرین دوره های آپلود شده
                             </div>
                         </div>
@@ -200,9 +200,9 @@
                                     {{$course->title}}
                                 </h6>
                             </a>
-                            <span class="text-warning tf-12">
-                            {{Str::limit($course->description,50)}}
-                        </span>
+                            <div class="text-warning tf-12 text-justify">
+                            {{Str::limit($course->description,100)}}
+                            </div>
                         </div>
                     </div>
                         @endif
@@ -221,7 +221,7 @@
                             <a class="nav-link active" id="pills-home-tab1" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home1" aria-selected="true">آخرین مقالات</a>
                         </li>
                     </ul>
-                    <a href="#" class="mr-auto pt-3 mt-2 text-muted">مشاهده همه مقالات</a>
+                    <a href="{{url('/articles')}}" class="mr-auto pt-3 mt-2 text-muted">مشاهده همه مقالات</a>
                 </div>
                 <hr class="text-dark border">
                 <div class="tab-content mb-3" id="pills-tabContent1">
@@ -246,16 +246,16 @@
                                                     </p>
                                                 </div>
                                                 <div class="card-footer">
-                                                    <div class="custom-controller-inline">
-                                        <span class="p-1">
-                                             {{$article->likeCount}}
-                                            <i class="far fa-heart"></i>
-                                        </span>
+                                                    <div class="d-flex">
+                                                        <span class="p-1" title="افزودن به مورد علاقه ها">
+                                                         {{$article->likes->count()}}
+                                                         @include('layouts.like',['subject'=>$article])
+                                                        </span>
                                                         <span class="p-1">
                                             {{$article->viewCount}}
                                             <i class="far fa-eye"></i>
                                         </span>
-                                                        <span>
+                                                        <span class="p-1">
                                                             {{count($article->comments)}}
                                                             <i class="fa fa-comments"></i>
                                                         </span>
@@ -344,7 +344,7 @@
                             </div>
                         </div>
                         <div class="col-5 text-left">
-                            <a href="#" class="btn btn-primary rounded ft-12">همه کتاب های صوتی</a>
+                            <a href="{{url('/podcasts')}}" class="btn btn-primary rounded ft-12">همه کتاب های صوتی</a>
                         </div>
                     </div>
                     <hr>
@@ -370,9 +370,9 @@
                                     </p>
                                 </div>
                                 <div class="card-footer">
-                                    <span class="p-1">
-                                        {{$podcast->likeCount}}
-                                        <i class="fa fa-heart"></i>
+                                    <span class="p-1" title="افزودن به مورد علاقه ها">
+                                        {{$podcast->likes->count()}}
+                                        @include('layouts.like',['subject'=>$podcast])
                                     </span>
                                     <span class="p-1">
                                         {{$podcast->viewCount}}
@@ -439,7 +439,7 @@
                             {{$achievement->user->name}}
                             @endif
                         </h2>
-                        <p>{!! $achievement->body !!}</p>
+                        <p>{!! Str::limit($achievement->body,200) !!}</p>
                         </a>
                     </div>
                 </div>

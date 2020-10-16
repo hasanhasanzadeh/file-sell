@@ -217,10 +217,10 @@ desired effect
 
                 <li><a href="{{url('/admin/newsletter')}}"><i class="fa fa-envelope"></i> <span>خبرنامه</span></a></li>
                 <li><a href="{{url('/admin/coupons')}}"><i class="fa fa-percent"></i> <span>تخفیفات</span></a></li>
-                <li><a href="{{url('/admin/us-contact')}}"><i class="fa fa-commenting"></i> <span>ارتباط با ما</span></a></li>
-                    @can('isAdmin')
-                <li><a href="{{url('/admin/settings')}}"><i class="fa fa-sliders-h"></i> <span>تنظیمات </span></a></li>
-                    @endcan
+                 @can('isAdmin')
+                    <li><a href="{{url('/admin/contacts')}}"><i class="fa fa-commenting"></i> <span>ارتباط با ما</span></a></li>
+                    <li><a href="{{url('/admin/settings')}}"><i class="fa fa-sliders-h"></i> <span>تنظیمات </span></a></li>
+                 @endcan
             </ul>
             <!-- /.sidebar-menu -->
         </section>

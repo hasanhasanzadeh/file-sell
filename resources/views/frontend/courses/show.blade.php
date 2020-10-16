@@ -47,9 +47,9 @@
                         <img src="{{$course->photo->path}}" width="100%;" alt="">
                         <hr class="bg-light">
                         <div class="custom-controller-inline text-muted">
-                    <span class="p-1">
-                    {{$course->likeCount}}
-                    <i class="far fa-heart"></i>
+                    <span class="p-1" title="افزودن به مورد علاقه ها">
+                    {{$course->likes->count()}}
+                        @include('layouts.like',['subject'=>$course])
                     </span>
                     <span class="p-1">
                     {{$course->viewCount}}
@@ -116,7 +116,7 @@
         </div>
     </div>
 
-    <div class="content-propaganda my-3">
+    <div class="content-propaganda my-3 h-100">
         <div class="container-fluid">
             <div class="row m-2">
                 <div class="col-12">
@@ -151,10 +151,10 @@
                                 </div>
                                 <div class="card-footer">
                                     <div class="custom-controller-inline">
-                                        <a href="" class="p-1 text-dark text-decoration-none">
-                                            {{$course_c->likeCount}}
-                                            <i class="far fa-heart"></i>
-                                        </a>
+                                        <span class="p-1" title="افزودن به مورد علاقه ها">
+                                            {{$course_c->likes->count()}}
+                                            @include('layouts.like',['subject'=>$course_c ])
+                                        </span>
                                         <span class="p-1">
                                             {{$course_c->viewCount}}
                                             <i class="far fa-eye"></i>

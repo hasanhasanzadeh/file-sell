@@ -18,8 +18,13 @@ Route::post('user/active','Frontend\UserController@activation')->name('activatio
 Route::get('user/active/mobile','Frontend\UserController@verify')->name('verify.account');
 
 Route::middleware('auth')->group(function(){
+    Route::post('/contact-me','Frontend\MainController@contact_me')->name('contact.us');
+
     Route::post('photos/upload','Backend\PhotoController@upload')->name('photos.upload');
     Route::post('/comments/store','Frontend\CommentController@store')->name('comments.store');
+    Route::post('/likes/store','Frontend\LikeController@store')->name('likes.store');
+    Route::delete('/likes/destroy/{id}','Frontend\LikeController@destroy')->name('likes.destroy');
+    Route::get('/likes','Frontend\LikeController@index')->name('likes.index');
 
     Route::get('/advertisements','Frontend\AdvertisementController@index')->name('advertisement.index');
     Route::get('/advertisements/create','Frontend\AdvertisementController@create')->name('advertisement.create');
@@ -43,6 +48,11 @@ Route::namespace('Backend')->prefix('admin')->middleware(['auth','isAdmin'])->gr
     Route::resource('/gazettes','GazetteController');
     Route::resource('/podcasts','PodcastController');
     Route::resource('/parts','PartController');
+    Route::resource('/coupons','CouponController');
+
+    Route::get('/contacts','ContactController@index')->name('contacts.index');
+    Route::get('/contacts/{id}','ContactController@show')->name('contacts.show');
+    Route::delete('/contacts/destroy/{id}','ContactController@destroy')->name('contacts.destroy');
 
     Route::get('/advertisements/true-status','AdvertisementController@trueStatus')->name('advertisements.trueStatus');
     Route::get('/advertisements/false-status','AdvertisementController@falseStatus')->name('advertisements.falseStatus');
@@ -91,6 +101,12 @@ Route::group(['namespace' => 'Auth'] , function (){
 });
 
 Route::get('/','Frontend\MainController@index')->name('index');
+Route::get('/about','Frontend\MainController@about')->name('about');
+Route::get('/coupon-show/{id}','Frontend\MainController@coupon_show')->name('coupon.show');
+Route::get('/adv','Frontend\MainController@adv')->name('adv');
+Route::get('/faq','Frontend\MainController@faq')->name('faq');
+Route::get('/law','Frontend\MainController@law')->name('law');
+Route::get('/contact-us','Frontend\MainController@contact_us')->name('contact_us');
 Route::get('/articles/{slug}','Frontend\ArticleController@show')->name('articles.slug');
 Route::get('/courses/{slug}','Frontend\CourseController@show')->name('articles.slug');
 Route::get('/articles','Frontend\ArticleController@index')->name('articles');

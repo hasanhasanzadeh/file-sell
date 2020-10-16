@@ -13,6 +13,7 @@ class Coupon extends Model
         'status',
         'photo_id',
         'description',
+        'expired',
         'created_at',
         'updated_at',
     ];

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Category;
+use App\Coupon;
 use App\Course;
 use App\Http\Controllers\Controller;
 use App\Setting;
 use App\User;
+use Carbon\Carbon;
 use SEO;
 use Artesaos\SEOTools\Facades\SEOMeta;
 
@@ -16,7 +18,7 @@ class CourseController extends Controller
 
     public function index()
     {
-
+        $coupon=Coupon::where('expired','>',Carbon::now())->where('status',1)->latest()->first();
         $courses=Course::with('photo')->latest()->take(12)->get();
         $setting=Setting::first();
         $course=$courses[0];
@@ -27,13 +29,14 @@ class CourseController extends Controller
         if(auth()->check())
         {
             $user=User::with('photo')->findOrFail(auth()->user()->id);
-            return view('frontend.courses.index',compact(['courses','user','setting','categories']));
+            return view('frontend.courses.index',compact(['courses','user','setting','categories','coupon']));
         }
-        return view('frontend.courses.index',compact(['courses','setting','categories']));
+        return view('frontend.courses.index',compact(['courses','setting','categories','coupon']));
     }
 
     public function show($slug)
     {
+        $coupon=Coupon::where('expired','>',Carbon::now())->where('status',1)->latest()->first();
         $course=Course::with('photo','category')->whereSlug($slug)->first();
         $course->increment('viewCount');
         $setting=Setting::first();
@@ -48,9 +51,9 @@ class CourseController extends Controller
         if(auth()->check())
         {
             $user=User::with('photo')->findOrFail(auth()->user()->id);
-            return view('frontend.courses.show',compact(['course','user','courses','setting','comments','categories']));
+            return view('frontend.courses.show',compact(['course','user','courses','setting','comments','categories','coupon']));
         }
-        return view('frontend.courses.show',compact(['course','courses','comments','setting','categories']));
+        return view('frontend.courses.show',compact(['course','courses','comments','setting','categories','coupon']));
     }
 
 

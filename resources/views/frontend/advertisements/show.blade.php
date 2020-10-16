@@ -23,7 +23,7 @@
         </ol>
 
     </div>
-    <div class="profile">
+    <div class="profile h-100">
         <div class="container-fluid">
             <div class="row py-2">
                 <div class="col-12 col-md-12 col-sm-12">

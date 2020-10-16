@@ -156,7 +156,7 @@
         </div>
     </div>
 
-    <div class="content-propaganda my-3">
+    <div class="content-propaganda my-3 h-100">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
@@ -173,35 +173,35 @@
                     <hr >
                     <div class="row">
 
-                        @foreach($articles as  $key=>$article)
+                        @foreach($podcasts as  $key=>$podcast)
                             @if($key<4)
                                 <div class="col-md-3 col-12 mb-3">
                             <div class="card">
-                                <a href="{{url('/articles/'.$article->slug)}}">
-                                    <img src="{{$article->photo->path}}" class="card-img-top img-card-sf" alt="">
+                                <a href="{{url('/podcasts/'.$podcast->slug)}}">
+                                    <img src="{{$podcast->photo->path}}" class="card-img-top img-card-sf" alt="">
                                 </a>
                                 <div class="card-body">
-                                    <a href="{{url('/articles/'.$article->slug)}}" class="text-decoration-none text-dark">
+                                    <a href="{{url('/podcasts/'.$podcast->slug)}}" class="text-decoration-none text-dark">
                                         <h5>
-                                            {{$article->title}}
+                                            {{$podcast->title}}
                                         </h5>
                                     </a>
                                     <p class="text-muted text-justify">
-                                        {{ Str::limit($article->description,140)}}
+                                        {{ Str::limit($podcast->description,140)}}
                                     </p>
                                 </div>
                                 <div class="card-footer">
                                     <div class="custom-controller-inline">
-                                        <span class="p-1">
-                                            {{$article->likeCount}}
-                                            <i class="far fa-heart"></i>
+                                        <span class="p-1" title="افزودن به مورد علاقه ها">
+                                            {{$podcast->likes->count()}}
+                                            @include('layouts.like',['subject'=>$podcast])
                                         </span>
                                         <span class="p-1">
-                                           {{$article->viewCount}}
-                                            <i class="far fa-eye"></i>
+                                           {{$podcast->viewCount}}
+                                            <i class="fa fa-assistive-listening-systems"></i>
                                         </span>
                                         <span class="p-1">
-                                            {{ count($article->comments) }}
+                                            {{ count($podcast->comments) }}
                                             <i class="far fa-comment"></i>
                                         </span>
                                     </div>

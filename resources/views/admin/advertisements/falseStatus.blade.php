@@ -46,6 +46,7 @@
                             <td>عنوان آگهی</td>
                             <td>عکس آگهی</td>
                             <td>متن آگهی</td>
+                            <td>رسید بانکی </td>
                             <td>تاریخ ایجاد</td>
                             <td>عملیات</td>
                         </tr>
@@ -62,6 +63,7 @@
                                     <img src="{{$advertisement->photo->path}}" height="160" width="140" alt="{{$advertisement->title}}">
                                 </td>
                                 <td>{{ $advertisement->body}}</td>
+                                <td>{{ $advertisement->payment_id}}</td>
                                 <td>{{\Hekmatinasser\Verta\Verta::instance($advertisement->created_at)->formatDifference()}}</td>
                                 <td>
                                     <form action="{{route('advertisements.update',$advertisement->id)}}" method="POST">

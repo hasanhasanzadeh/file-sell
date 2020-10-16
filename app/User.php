@@ -97,11 +97,15 @@ class User extends Authenticatable
     }
 
 
-    public function contact()
+    public function contacts()
     {
-        return $this->belongsTo(Contact::class);
+        return $this->hasMany(Contact::class);
     }
 
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
     public function comments()
     {
         return $this->hasMany(Comment::class);

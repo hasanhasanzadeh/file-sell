@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <div class="profile">
+    <div class="profile h-100">
         <div class="container-fluid">
             <div class="row py-2">
                 <div class="col-12 col-md-4 col-sm-6">
@@ -48,7 +48,7 @@
                             </a>
                         </div>
                         <div class="nav-item">
-                            <a href="#" class="nav-link a-link">
+                            <a href="{{url('/likes')}}" class="nav-link a-link">
                                 <i class="fa fa-heart ft-22 p-2"></i>
                                 <span>لیست علاقه مندی ها</span>
                             </a>
@@ -86,7 +86,16 @@
                                     <label for="body">متن آگهی</label>
                                     <textarea name="body" id="body" class="form-control" placeholder="متن آگهی خود را ایجاد کنید..." cols="30" rows="7">{{old('body')}}</textarea>
                                 </div>
+
                                 <div class="form-group">
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true" class="mr-auto">&times;</span>
+                                        </button>
+                                        <strong>
+                                            آدرس آگهی باید آدرس کامل وب سایت یا شبکه اجتماعی باشد.
+                                        </strong>
+                                    </div>
                                     <label for="url_address">آدرس آگهی</label>
                                     <input type="text" class="form-control" name="url_address" id="url_address" placeholder="آدرس آگهی خود را وارد کنید..." value="{{old('url_address')}}">
                                 </div>

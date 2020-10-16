@@ -11,7 +11,7 @@
 @section('content')
 
 
-    <div class="profile">
+    <div class="profile h-100">
         <div class="container-fluid">
             <div class="row py-2">
                 <div class="col-12 col-md-4 col-sm-6">
@@ -50,7 +50,7 @@
                             </a>
                         </div>
                         <div class="nav-item">
-                            <a href="#" class="nav-link a-link">
+                            <a href="{{url('/likes')}}" class="nav-link a-link">
                                 <i class="fa fa-heart ft-22 p-2"></i>
                                 <span>لیست علاقه مندی ها</span>
                             </a>
